@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7myatyesp53n"]
+
+[ext_resource type="Texture2D" uid="uid://c7sry65sh8qt2" path="res://Backgrounds/textbox.png" id="1_btotq"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_g7fni"]
+[ext_resource type="PackedScene" uid="uid://detmlnr7gd12c" path="res://Settings/settings_tab_container.tscn" id="3_wdvny"]
+
+[sub_resource type="SystemFont" id="SystemFont_www3o"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1a5cv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkpwh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v4aw"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_g7fni")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="TempBackground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(571.5, 331)
+scale = Vector2(36.2188, 27.3125)
+texture = ExtResource("1_btotq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 49.0
+offset_right = 584.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = SubResource("SystemFont_www3o")
+theme_override_font_sizes/font_size = 64
+text = "Casino Simulator"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 1154.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = SubResource("SystemFont_www3o")
+theme_override_font_sizes/font_size = 64
+text = "Casino Simulator"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 74.0
+offset_top = 196.0
+offset_right = 518.0
+offset_bottom = 612.0
+
+[node name="GameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game Select"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1a5cv")
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rkpwh")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 324)
+offset_right = 1152.0
+offset_bottom = 324.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 121
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BlackjackButton" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Blackjack"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5v4aw")
+
+[node name="TexasButton" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Texas Hold'em"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 324)
+offset_left = 3.0
+offset_top = 322.0
+offset_right = 1152.0
+offset_bottom = 646.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 121
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RouletteButton" type="Button" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Roulette"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5v4aw")
+
+[node name="SlotsButton" type="Button" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Slots
+"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+visible = false
+offset_left = 1.0
+offset_right = 1151.0
+offset_bottom = 655.0
+
+[node name="Settings_Tab_Container" parent="MarginContainer3" instance=ExtResource("3_wdvny")]
+layout_mode = 2
+
+[node name="BackToMain" type="Button" parent="."]
+visible = false
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 204.0
+offset_bottom = 68.0
+text = "Main Menu
+"
+
+[connection signal="pressed" from="VBoxContainer/GameButton" to="." method="_on_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="BackToMain" to="." method="_on_back_to_main_pressed"]
