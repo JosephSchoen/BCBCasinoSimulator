@@ -37,3 +37,7 @@ func _on_back_to_main_pressed():
 	settings_ui.hide()
 
 	
+
+
+func _on_roulette_button_pressed():
+	get_tree().change_scene_to_file("res://Roulette/roulette.tscn")

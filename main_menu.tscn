@@ -163,4 +163,5 @@ text = "Main Menu
 [connection signal="pressed" from="VBoxContainer/GameButton" to="." method="_on_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/RouletteButton" to="." method="_on_roulette_button_pressed"]
 [connection signal="pressed" from="BackToMain" to="." method="_on_back_to_main_pressed"]
