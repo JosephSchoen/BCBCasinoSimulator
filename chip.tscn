@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://gtxeluoimtsm"]
+
+[ext_resource type="Script" path="res://chip.gd" id="1_e77w5"]
+[ext_resource type="Texture2D" uid="uid://bvycitlcccmdc" path="res://Roulette/Assets/correctscuffedchip.png" id="2_untrs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8pf0s"]
+
+[node name="Chip" type="Node2D"]
+script = ExtResource("1_e77w5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_untrs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, 10)
+shape = SubResource("CircleShape2D_8pf0s")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

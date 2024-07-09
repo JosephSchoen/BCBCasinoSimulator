@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://x2ea6qh76rt5"]
+[gd_scene load_steps=8 format=3 uid="uid://x2ea6qh76rt5"]
 
 [ext_resource type="Script" path="res://Roulette/roulette.gd" id="1_jclcb"]
 [ext_resource type="PackedScene" uid="uid://qo1c7alxl6x8" path="res://drag_and_drop.tscn" id="3_nwqvl"]
+[ext_resource type="Texture2D" uid="uid://bvycitlcccmdc" path="res://Roulette/Assets/correctscuffedchip.png" id="3_xtdgg"]
 [ext_resource type="Texture2D" uid="uid://h4ep1wpurfs2" path="res://Roulette/Assets/roulette-finish-blowup.png" id="4_84dsl"]
-[ext_resource type="Texture2D" uid="uid://dqsfi5wmvdu65" path="res://Roulette/Assets/scuffedchip.png" id="4_mlrrn"]
+[ext_resource type="Script" path="res://drag_and_drop_slots.gd" id="5_k86mo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1b68"]
-size = Vector2(68, 69)
+size = Vector2(38, 38)
 
 [sub_resource type="SystemFont" id="SystemFont_7yg5c"]
 font_names = PackedStringArray("Comic Sans MS")
@@ -16,41 +17,154 @@ script = ExtResource("1_jclcb")
 
 [node name="BettingNodes" type="Node2D" parent="."]
 
-[node name="BetNum3" type="Area2D" parent="BettingNodes"]
+[node name="SingleBets" type="Node" parent="BettingNodes"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/BetNum3"]
-position = Vector2(133, 157.5)
+[node name="Bet_20" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(440, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_20"]
+position = Vector2(173, 319)
 shape = SubResource("RectangleShape2D_k1b68")
 
-[node name="TextureRect" parent="." instance=ExtResource("3_nwqvl")]
-visible = false
-top_level = true
-offset_left = 121.0
-offset_top = 138.0
-offset_right = 161.0
-offset_bottom = 178.0
+[node name="VerticalDoubleBets" type="Node" parent="BettingNodes"]
 
-[node name="TextureRect2" parent="." instance=ExtResource("3_nwqvl")]
+[node name="Bet_6_5" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(40, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_6_5"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="HorizontalDoubleBets" type="Node" parent="BettingNodes"]
+
+[node name="Bet_20_23" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(480, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_20_23"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_21_20" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(440, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_21_20"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_18_17" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(360, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_18_17"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_15_14" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(280, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_15_14"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_12_11" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(200, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_12_11"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_9_8" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(120, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_9_8"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_24_23" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(520, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_24_23"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet3and2" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(0, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet3and2"]
+position = Vector2(133, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="QuadBets" type="Node" parent="BettingNodes"]
+
+[node name="Bet_12_15_11_14" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(240, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_12_15_11_14"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_15_18_14_17" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(320, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_15_18_14_17"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_18_21_17_20" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(400, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_18_21_17_20"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_21_24_20_23" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(480, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_21_24_20_23"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_9_12_8_11" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(160, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_9_12_8_11"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_6_9_5_8" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(80, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_6_9_5_8"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_3_6_2_5" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(0, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_3_6_2_5"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="BlueChip" parent="." instance=ExtResource("3_nwqvl")]
 top_level = true
 offset_left = 139.0
 offset_top = 570.0
-offset_right = 179.0
-offset_bottom = 610.0
-texture = ExtResource("4_mlrrn")
+offset_right = 174.0
+offset_bottom = 605.0
+texture = ExtResource("3_xtdgg")
 
-[node name="TextureRect3" parent="." instance=ExtResource("3_nwqvl")]
+[node name="BlackChip" parent="." instance=ExtResource("3_nwqvl")]
 top_level = true
-offset_left = 239.0
-offset_top = 571.0
-offset_right = 279.0
-offset_bottom = 611.0
-texture = ExtResource("4_mlrrn")
+offset_left = 214.0
+offset_top = 569.0
+offset_right = 249.0
+offset_bottom = 604.0
+texture = ExtResource("3_xtdgg")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 709.0
 offset_top = 13.0
-offset_right = 1437.0
-offset_bottom = 221.0
+offset_right = 1152.0
+offset_bottom = 107.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
 theme_override_fonts/font = SubResource("SystemFont_7yg5c")
@@ -79,10 +193,802 @@ texture = ExtResource("4_84dsl")
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="mouse_entered" from="BettingNodes/BetNum3" to="." method="_on_bet_num_3_mouse_entered"]
-[connection signal="mouse_exited" from="BettingNodes/BetNum3" to="." method="_on_bet_num_3_mouse_exited"]
-[connection signal="mouse_entered" from="TextureRect2" to="." method="_on_texture_rect_2_mouse_entered"]
-[connection signal="mouse_exited" from="TextureRect2" to="." method="_on_texture_rect_2_mouse_exited"]
-[connection signal="mouse_entered" from="TextureRect3" to="." method="_on_texture_rect_3_mouse_entered"]
-[connection signal="mouse_exited" from="TextureRect3" to="." method="_on_texture_rect_3_mouse_exited"]
+[node name="MarginContainerSingles" type="MarginContainer" parent="."]
+offset_left = 98.0
+offset_top = 123.0
+offset_right = 1048.0
+offset_bottom = 354.0
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="GridContainerSingles" type="GridContainer" parent="MarginContainerSingles"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 12
+
+[node name="RouletteSlot" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot2" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot3" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot4" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot5" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot6" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot7" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot8" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot9" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot10" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot11" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot12" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot13" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot14" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot15" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot16" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot17" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot18" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot19" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot20" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot21" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot22" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot23" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot24" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot25" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot26" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot27" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot28" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot29" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot30" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot31" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot32" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot33" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot34" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot35" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot36" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="MarginContainerQuads" type="MarginContainer" parent="."]
+offset_left = 99.0
+offset_top = 123.0
+offset_right = 1048.0
+offset_bottom = 353.0
+mouse_filter = 2
+theme_override_constants/margin_left = 54
+theme_override_constants/margin_top = 55
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="GridContainerQuads" type="GridContainer" parent="MarginContainerQuads"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 11
+
+[node name="RouletteSlot37" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot38" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot39" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot40" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot41" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot42" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot43" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot44" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot45" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot46" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot47" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot48" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot49" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot50" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot51" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot52" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot53" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot54" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot55" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot56" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot57" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot58" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="MarginContainerVertDoubles" type="MarginContainer" parent="."]
+offset_left = 98.0
+offset_top = 123.0
+offset_right = 1048.0
+offset_bottom = 364.0
+mouse_filter = 2
+theme_override_constants/margin_left = 55
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainerVertDoubles"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 11
+
+[node name="RouletteSlot59" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot60" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot61" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot62" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot63" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot64" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot65" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot66" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot67" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot68" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot69" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot70" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot71" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot72" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot73" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot74" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot75" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot76" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot77" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot78" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot79" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot80" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot81" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot82" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot83" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot84" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot85" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot86" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot87" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot88" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot89" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot90" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot91" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="MarginContainerHorzDoubles" type="MarginContainer" parent="."]
+offset_left = 98.0
+offset_top = 123.0
+offset_right = 1049.0
+offset_bottom = 354.0
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 55
+theme_override_constants/margin_right = 15
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainerHorzDoubles"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 12
+
+[node name="RouletteSlot92" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot93" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot94" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot95" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot96" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot97" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot98" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot99" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot100" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot101" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot102" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot103" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot104" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot105" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot106" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot107" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot108" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot109" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot110" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot111" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot112" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot113" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot114" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[node name="RouletteSlot115" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+script = ExtResource("5_k86mo")
+
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_20" to="." method="_on_bet_20_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_20" to="." method="_on_bet_20_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_6_5" to="." method="_on_bet_6_5_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_6_5" to="." method="_on_bet_6_5_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_20_23" to="." method="_on_bet_20_23_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_20_23" to="." method="_on_bet_20_23_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_21_20" to="." method="_on_bet_21_20_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_21_20" to="." method="_on_bet_21_20_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_18_17" to="." method="_on_bet_18_17_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_18_17" to="." method="_on_bet_18_17_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_15_14" to="." method="_on_bet_15_14_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_15_14" to="." method="_on_bet_15_14_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_12_11" to="." method="_on_bet_12_11_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_12_11" to="." method="_on_bet_12_11_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_9_8" to="." method="_on_bet_9_8_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_9_8" to="." method="_on_bet_9_8_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_24_23" to="." method="_on_bet_24_23_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_24_23" to="." method="_on_bet_24_23_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet3and2" to="." method="_on_bet_3_and_2_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet3and2" to="." method="_on_bet_3_and_2_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_12_15_11_14" to="." method="_on_bet_12_15_11_14_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_12_15_11_14" to="." method="_on_bet_12_15_11_14_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_15_18_14_17" to="." method="_on_bet_15_18_14_17_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_15_18_14_17" to="." method="_on_bet_15_18_14_17_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_18_21_17_20" to="." method="_on_bet_18_21_17_20_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_18_21_17_20" to="." method="_on_bet_18_21_17_20_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_21_24_20_23" to="." method="_on_bet_21_24_20_23_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_21_24_20_23" to="." method="_on_bet_21_24_20_23_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_9_12_8_11" to="." method="_on_bet_9_12_8_11_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_9_12_8_11" to="." method="_on_bet_9_12_8_11_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_6_9_5_8" to="." method="_on_bet_6_9_5_8_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_6_9_5_8" to="." method="_on_bet_6_9_5_8_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_3_6_2_5" to="." method="_on_bet_3_6_2_5_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_3_6_2_5" to="." method="_on_bet_3_6_2_5_mouse_exited"]
+[connection signal="mouse_entered" from="BlueChip" to="." method="_on_blue_chip_mouse_entered"]
+[connection signal="mouse_exited" from="BlueChip" to="." method="_on_blue_chip_mouse_exited"]
+[connection signal="mouse_entered" from="BlackChip" to="." method="_on_black_chip_mouse_entered"]
+[connection signal="mouse_exited" from="BlackChip" to="." method="_on_black_chip_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot" to="." method="_on_roulette_slot_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot2" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot2" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot3" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot3" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot4" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot4" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot5" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot5" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot6" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot6" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot7" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot7" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot8" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot8" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot9" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot9" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot10" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot10" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot11" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot11" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot12" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot12" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot13" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot13" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot14" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot14" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot15" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot15" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot16" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot16" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot17" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot17" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot18" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot18" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot19" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot19" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot20" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot20" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot21" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot21" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot22" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot22" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot23" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot23" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot24" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot24" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot25" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot25" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot26" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot26" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot27" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot27" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot28" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot28" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot29" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot29" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot30" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot30" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot31" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot31" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot32" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot32" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot33" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot33" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot34" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot34" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot35" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot35" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot36" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot36" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot37" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot37" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot38" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot38" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot39" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot39" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot40" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot40" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot41" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot41" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot42" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot42" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot43" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot43" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot44" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot44" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot45" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot45" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot46" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot46" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot47" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot47" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot48" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot48" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot49" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot49" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot50" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot50" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot51" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot51" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot52" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot52" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot53" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot53" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot54" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot54" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot55" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot55" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot56" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot56" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot57" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot57" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerQuads/GridContainerQuads/RouletteSlot58" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerQuads/GridContainerQuads/RouletteSlot58" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot59" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot59" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot60" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot60" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot61" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot61" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot62" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot62" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot63" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot63" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot64" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot64" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot65" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot65" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot66" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot66" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot67" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot67" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot68" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot68" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot69" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot69" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot70" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot70" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot71" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot71" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot72" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot72" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot73" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot73" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot74" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot74" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot75" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot75" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot76" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot76" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot77" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot77" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot78" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot78" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot79" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot79" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot80" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot80" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot81" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot81" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot82" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot82" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot83" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot83" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot84" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot84" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot85" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot85" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot86" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot86" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot87" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot87" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot88" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot88" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot89" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot89" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot90" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot90" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerVertDoubles/GridContainer/RouletteSlot91" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerVertDoubles/GridContainer/RouletteSlot91" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot92" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot92" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot93" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot93" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot94" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot94" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot95" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot95" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot96" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot96" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot97" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot97" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot98" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot98" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot99" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot99" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot100" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot100" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot101" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot101" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot102" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot102" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot103" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot103" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot104" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot104" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot105" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot105" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot106" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot106" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot107" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot107" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot108" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot108" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot109" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot109" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot110" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot110" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot111" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot111" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot112" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot112" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot113" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot113" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot114" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot114" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot115" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot115" to="." method="_on_texture_rect_2_mouse_exited"]

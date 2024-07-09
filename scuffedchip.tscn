@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://3m34hlk65jlm"]
+
+[ext_resource type="Texture2D" uid="uid://dqsfi5wmvdu65" path="res://Roulette/Assets/scuffedchip.png" id="1_4ptmm"]
+
+[node name="scuffedchip" type="Sprite2D"]
+position = Vector2(21, 16)
+texture = ExtResource("1_4ptmm")
