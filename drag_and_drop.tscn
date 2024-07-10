@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://TextureRect.gd" id="1_vv5vl"]
 
 [node name="TextureRect" type="TextureRect"]
-custom_minimum_size = Vector2(40, 40)
-offset_right = 35.0
-offset_bottom = 35.0
+custom_minimum_size = Vector2(30, 30)
+offset_right = 29.0
+offset_bottom = 29.0
 mouse_default_cursor_shape = 6
 expand_mode = 1
 script = ExtResource("1_vv5vl")
 
 [node name="Panel" type="Panel" parent="."]
 show_behind_parent = true
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
-offset_right = 35.0
-offset_bottom = 35.0
+offset_right = 29.0
+offset_bottom = 29.0
 mouse_filter = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

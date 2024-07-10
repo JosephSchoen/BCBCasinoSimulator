@@ -1,15 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://x2ea6qh76rt5"]
+[gd_scene load_steps=11 format=3 uid="uid://x2ea6qh76rt5"]
 
 [ext_resource type="Script" path="res://Roulette/roulette.gd" id="1_jclcb"]
 [ext_resource type="PackedScene" uid="uid://qo1c7alxl6x8" path="res://drag_and_drop.tscn" id="3_nwqvl"]
 [ext_resource type="Texture2D" uid="uid://bvycitlcccmdc" path="res://Roulette/Assets/correctscuffedchip.png" id="3_xtdgg"]
 [ext_resource type="Texture2D" uid="uid://h4ep1wpurfs2" path="res://Roulette/Assets/roulette-finish-blowup.png" id="4_84dsl"]
 [ext_resource type="Script" path="res://drag_and_drop_slots.gd" id="5_k86mo"]
+[ext_resource type="Script" path="res://Roulette/Camera2D.gd" id="6_s4jry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1b68"]
-size = Vector2(38, 38)
+size = Vector2(30.5, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mplrd"]
+size = Vector2(130, 52)
 
 [sub_resource type="SystemFont" id="SystemFont_7yg5c"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="SystemFont" id="SystemFont_86tkf"]
 font_names = PackedStringArray("Comic Sans MS")
 
 [node name="Roulette" type="Node2D"]
@@ -90,7 +97,7 @@ shape = SubResource("RectangleShape2D_k1b68")
 position = Vector2(0, -120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet3and2"]
-position = Vector2(133, 318.5)
+position = Vector2(133, 318)
 shape = SubResource("RectangleShape2D_k1b68")
 
 [node name="QuadBets" type="Node" parent="BettingNodes"]
@@ -127,7 +134,7 @@ shape = SubResource("RectangleShape2D_k1b68")
 position = Vector2(160, -120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_9_12_8_11"]
-position = Vector2(173, 318.5)
+position = Vector2(172.75, 317.75)
 shape = SubResource("RectangleShape2D_k1b68")
 
 [node name="Bet_6_9_5_8" type="Area2D" parent="BettingNodes/QuadBets"]
@@ -141,23 +148,37 @@ shape = SubResource("RectangleShape2D_k1b68")
 position = Vector2(0, -120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_3_6_2_5"]
-position = Vector2(173, 318.5)
+position = Vector2(173, 318)
 shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Red" type="Area2D" parent="BettingNodes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/Red"]
+position = Vector2(493, 478)
+shape = SubResource("RectangleShape2D_mplrd")
+
+[node name="RouletteSlot37" parent="BettingNodes/Red" instance=ExtResource("3_nwqvl")]
+offset_left = 478.0
+offset_top = 463.0
+offset_right = 508.0
+offset_bottom = 493.0
+script = ExtResource("5_k86mo")
 
 [node name="BlueChip" parent="." instance=ExtResource("3_nwqvl")]
 top_level = true
-offset_left = 139.0
-offset_top = 570.0
-offset_right = 174.0
-offset_bottom = 605.0
+offset_left = 136.0
+offset_top = 566.0
+offset_right = 166.0
+offset_bottom = 596.0
+mouse_default_cursor_shape = 2
 texture = ExtResource("3_xtdgg")
 
 [node name="BlackChip" parent="." instance=ExtResource("3_nwqvl")]
 top_level = true
 offset_left = 214.0
 offset_top = 569.0
-offset_right = 249.0
-offset_bottom = 604.0
+offset_right = 244.0
+offset_bottom = 599.0
 texture = ExtResource("3_xtdgg")
 
 [node name="Label" type="Label" parent="."]
@@ -165,6 +186,18 @@ offset_left = 709.0
 offset_top = 13.0
 offset_right = 1152.0
 offset_bottom = 107.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = SubResource("SystemFont_7yg5c")
+theme_override_font_sizes/font_size = 64
+text = "Placeholder
+"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 19.0
+offset_top = -312.0
+offset_right = 462.0
+offset_bottom = -218.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
 theme_override_fonts/font = SubResource("SystemFont_7yg5c")
@@ -196,19 +229,19 @@ texture = ExtResource("4_84dsl")
 [node name="MarginContainerSingles" type="MarginContainer" parent="."]
 offset_left = 98.0
 offset_top = 123.0
-offset_right = 1048.0
-offset_bottom = 354.0
+offset_right = 1052.0
+offset_bottom = 353.0
 mouse_filter = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="GridContainerSingles" type="GridContainer" parent="MarginContainerSingles"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/h_separation = 40
-theme_override_constants/v_separation = 40
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
 columns = 12
 
 [node name="RouletteSlot" parent="MarginContainerSingles/GridContainerSingles" instance=ExtResource("3_nwqvl")]
@@ -361,16 +394,16 @@ offset_top = 123.0
 offset_right = 1048.0
 offset_bottom = 353.0
 mouse_filter = 2
-theme_override_constants/margin_left = 54
-theme_override_constants/margin_top = 55
+theme_override_constants/margin_left = 59
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
 [node name="GridContainerQuads" type="GridContainer" parent="MarginContainerQuads"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/h_separation = 40
-theme_override_constants/v_separation = 40
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
 columns = 11
 
 [node name="RouletteSlot37" parent="MarginContainerQuads/GridContainerQuads" instance=ExtResource("3_nwqvl")]
@@ -467,15 +500,15 @@ offset_top = 123.0
 offset_right = 1048.0
 offset_bottom = 364.0
 mouse_filter = 2
-theme_override_constants/margin_left = 55
-theme_override_constants/margin_top = 15
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 15
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainerVertDoubles"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/h_separation = 40
-theme_override_constants/v_separation = 40
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
 columns = 11
 
 [node name="RouletteSlot59" parent="MarginContainerVertDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
@@ -616,15 +649,15 @@ offset_top = 123.0
 offset_right = 1049.0
 offset_bottom = 354.0
 mouse_filter = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 55
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 15
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainerHorzDoubles"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/h_separation = 40
-theme_override_constants/v_separation = 40
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
 columns = 12
 
 [node name="RouletteSlot92" parent="MarginContainerHorzDoubles/GridContainer" instance=ExtResource("3_nwqvl")]
@@ -723,6 +756,39 @@ script = ExtResource("5_k86mo")
 layout_mode = 2
 script = ExtResource("5_k86mo")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 320)
+script = ExtResource("6_s4jry")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 932.0
+offset_top = 553.0
+offset_right = 1083.0
+offset_bottom = 623.0
+text = "Place Bet"
+
+[node name="WheelTimer" type="Timer" parent="."]
+
+[node name="NumberLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = -471.0
+offset_right = 540.0
+offset_bottom = -381.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("SystemFont_86tkf")
+theme_override_font_sizes/font_size = 64
+text = "Placeholder"
+
+[node name="BackToBoard" type="Button" parent="."]
+offset_left = 718.0
+offset_top = -277.0
+offset_right = 1065.0
+offset_bottom = -178.0
+theme_override_font_sizes/font_size = 32
+text = "Back to Betting"
+
 [connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_20" to="." method="_on_bet_20_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_20" to="." method="_on_bet_20_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_6_5" to="." method="_on_bet_6_5_mouse_entered"]
@@ -757,6 +823,10 @@ script = ExtResource("5_k86mo")
 [connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_6_9_5_8" to="." method="_on_bet_6_9_5_8_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_3_6_2_5" to="." method="_on_bet_3_6_2_5_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_3_6_2_5" to="." method="_on_bet_3_6_2_5_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/Red" to="." method="_on_red_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/Red" to="." method="_on_red_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/Red/RouletteSlot37" to="." method="_on_texture_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/Red/RouletteSlot37" to="." method="_on_texture_rect_2_mouse_exited"]
 [connection signal="mouse_entered" from="BlueChip" to="." method="_on_blue_chip_mouse_entered"]
 [connection signal="mouse_exited" from="BlueChip" to="." method="_on_blue_chip_mouse_exited"]
 [connection signal="mouse_entered" from="BlackChip" to="." method="_on_black_chip_mouse_entered"]
@@ -992,3 +1062,6 @@ script = ExtResource("5_k86mo")
 [connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot114" to="." method="_on_texture_rect_2_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot115" to="." method="_on_texture_rect_2_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot115" to="." method="_on_texture_rect_2_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="WheelTimer" to="." method="_on_wheel_timer_timeout"]
+[connection signal="button_down" from="BackToBoard" to="." method="_on_back_to_board_button_down"]
