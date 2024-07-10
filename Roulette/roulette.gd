@@ -98,27 +98,7 @@ func check_place_or_return_bet():
 						player_bets.erase(roulette_number)
 						balance_text.text = "Balance: " + str(balance)
 		
-		"""if roulette_number != null:
-				if player_has_bet_on_number(roulette_number):
-					# If the player left clicks
-					if Input.is_action_just_pressed("Left Click"):
-						# Set chip_grabbed to true (The player picks up the last chip placed)
-						chip_grabbed = true
-						# Grab the list of bets associated with the roulette number
-						var bet_list = player_bets[roulette_number]
-						# Grab the last amount betted from the list
-						bet_amount = bet_list[len(bet_list) - 1]
-						# Remove this value from the list since the player is picking it up
-						bet_list.remove_at(len(bet_list)-1)
-						# If there are no more bets at that number, remove the key-value pair from the dictionary
-						if len(bet_list) == 0:
-							player_bets.erase(roulette_number)
-						# Otherwise, assign the value of the key to be the new list
-						else:
-							player_bets[roulette_number] = bet_list
-						# Get the chip color
-						chip_color = get_chip(bet_amount)
-						return_bet()"""
+
 
 	
 # Searches the dictionary to see if the player has bet on the roulette number their mouse is hovering over
@@ -131,17 +111,6 @@ func player_has_bet_on_number(roulette_number) -> bool:
 # Decreases the player's balance by their selected bet amount
 func place_bet():
 	balance -= bet_amount
-	"""match chip_color:
-		"White Chip":
-			balance -= 1
-		"Red Chip":
-			balance -= 5
-		"Blue Chip":
-			balance -= 10
-		"Green Chip":
-			balance -= 25
-		"Black Chip":
-			balance -= 100"""
 	# Update the label to display the proper balance
 	balance_text.text = "Balance: " + str(balance)
 
@@ -254,7 +223,7 @@ func _on_bet_num_6_mouse_exited():
 
 func _on_bet_2356_mouse_entered():
 	can_bet = true
-	roulette_number = "2356"
+	roulette_number = "2_3_5_6"
 
 func _on_bet_2356_mouse_exited():
 	mouse_exited()
@@ -264,7 +233,7 @@ func mouse_exited():
 
 func _on_bet_3_and_6_mouse_entered():
 	can_bet = true
-	roulette_number = "3and6"
+	roulette_number = "3 and 6"
 
 func _on_bet_3_and_6_mouse_exited():
 	mouse_exited()
@@ -297,7 +266,7 @@ func _on_bet_6_5_mouse_exited():
 
 func _on_bet_6_9_5_8_mouse_entered():
 	can_bet = true
-	roulette_number = "6,9,5,8"
+	roulette_number = "6_9_5_8"
 
 func _on_bet_6_9_5_8_mouse_exited():
 	mouse_exited()
@@ -311,7 +280,7 @@ func _on_bet_9_8_mouse_exited():
 
 func _on_bet_9_12_8_11_mouse_entered():
 	can_bet = true
-	roulette_number = "9,12,8,11"
+	roulette_number = "9_12_8_11"
 
 
 func _on_bet_9_12_8_11_mouse_exited():
@@ -329,7 +298,7 @@ func _on_bet_12_11_mouse_exited():
 
 func _on_bet_12_15_11_14_mouse_entered():
 	can_bet = true
-	roulette_number = "12,15,11,14"
+	roulette_number = "12_15_11_14"
 
 
 func _on_bet_12_15_11_14_mouse_exited():
@@ -344,7 +313,7 @@ func _on_bet_15_14_mouse_exited():
 	
 func _on_bet_15_18_14_17_mouse_entered():
 	can_bet = true
-	roulette_number = "15,18,14,17"
+	roulette_number = "15_18_14_17"
 
 func _on_bet_15_18_14_17_mouse_exited():
 	mouse_exited()
@@ -358,7 +327,7 @@ func _on_bet_18_17_mouse_exited():
 
 func _on_bet_18_21_17_20_mouse_entered():
 	can_bet = true
-	roulette_number = "18,21,17,20"
+	roulette_number = "18_21_17_20"
 
 func _on_bet_18_21_17_20_mouse_exited():
 	mouse_exited()
@@ -387,7 +356,7 @@ func _on_bet_20_23_mouse_exited():
 
 func _on_bet_21_24_20_23_mouse_entered():
 	can_bet = true
-	roulette_number = "21,24,20,23"
+	roulette_number = "21_24_20_23"
 
 func _on_bet_21_24_20_23_mouse_exited():
 	mouse_exited()
@@ -401,7 +370,7 @@ func _on_bet_24_23_mouse_exited():
 
 func _on_bet_3_6_2_5_mouse_entered():
 	can_bet = true
-	roulette_number = "3,6,2,5"
+	roulette_number = "3_6_2_5"
 
 func _on_bet_3_6_2_5_mouse_exited():
 	mouse_exited()
@@ -413,14 +382,7 @@ func _on_button_pressed():
 
 
 func spin_wheel():
-	const bets = {
-		"1": ["1","Red", "2and1","1and4","2_5_1_4"], "2": ["2","Black","3and2","2and5","2and1","2_5_1_4","3_6_2_5"],
-		"3": ["3","Red","3and6","3and2","3_6_2_5"], "4": ["4","Black","1and4","4and7","5and4","2_5_1_4","5_8_4_7"],
-		"5": ["5","Red","2and5","6and5","5and4","5and8","3_6_2_5","2_5_1_4","6_9_5_8","5_8_4_7"], "6": ["6","Black","3and6","6and5","6and9","3_6_2_5","6_9_5_8"],
-		"7": ["7","Red","4and7","8and7","7and10","5_4_8_7","8_11_7_10"], "8": ["8","Black","5and8","9and8","8and11","8and7","6_9_5_8","9_12_8_11","5_8_4_7","8_11_7_10"],
-		"9": ["9","Red","6and9","9and8","9and12","6_9_5_8","9_12_8_11"], "10": ["10","Black","7and10","11and10","10and13","8_11_7_10","11_14_10_13"],
-		"11": ["11","Black","8and11","12and11","11and10","11and14","9_12_8_11","11_14_10_13","12_15_11_14","8_11_7_10"], "12": ["12","Red","9and12","12and11","12and15","9_12_8_11","12_15_11_14"]
-	}
+	
 	var selected_num = randi_range(0,37)
 	selected_num = str(numbers[selected_num])
 	
@@ -594,175 +556,175 @@ func spin_wheel():
 			"Green":
 				if selected_num == "0" or selected_num == "00":
 					balance += player_bets[roulette_number] * 17
-			"1and4":
+			"1 and 4":
 				if selected_num == "1" or selected_num == "4":
 					balance += player_bets[roulette_number] * 17
-			"2and5":
+			"2 and 5":
 				if selected_num == "2" or selected_num == "5":
 					balance += player_bets[roulette_number] * 17
-			"3and6":
+			"3 and 6":
 				if selected_num == "3" or selected_num == "6":
 					balance += player_bets[roulette_number] * 17
-			"4and7":
+			"4 and 7":
 				if selected_num == "4" or selected_num == "7":
 					balance += player_bets[roulette_number] * 17
-			"5and8":
+			"5 and 8":
 				if selected_num == "5" or selected_num == "8":
 					balance += player_bets[roulette_number] * 17
-			"6and9":
+			"6 and 9":
 				if selected_num == "6" or selected_num == "9":
 					balance += player_bets[roulette_number] * 17
-			"7and10":
+			"7 and 10":
 				if selected_num == "7" or selected_num == "10":
 					balance += player_bets[roulette_number] * 17
-			"8and11":
+			"8 and 11":
 				if selected_num == "8" or selected_num == "11":
 					balance += player_bets[roulette_number] * 17
-			"9and12":
+			"9 and 12":
 				if selected_num == "9" or selected_num == "12":
 					balance += player_bets[roulette_number] * 17
-			"10and13":
+			"10 and 13":
 				if selected_num == "10" or selected_num == "13":
 					balance += player_bets[roulette_number] * 17
-			"11and14":
+			"11 and 14":
 				if selected_num == "11" or selected_num == "14":
 					balance += player_bets[roulette_number] * 17
-			"12and15":
+			"12 and 15":
 				if selected_num == "12" or selected_num == "15":
 					balance += player_bets[roulette_number] * 17
-			"13and16":
+			"13 and 16":
 				if selected_num == "13" or selected_num == "16":
 					balance += player_bets[roulette_number] * 17
-			"14and17":
+			"14 and 17":
 				if selected_num == "14" or selected_num == "17":
 					balance += player_bets[roulette_number] * 17
-			"15and18":
+			"15 and 18":
 				if selected_num == "15" or selected_num == "18":
 					balance += player_bets[roulette_number] * 17
-			"16and19":
+			"16 and 19":
 				if selected_num == "16" or selected_num == "19":
 					balance += player_bets[roulette_number] * 17
-			"17and20":
+			"17 and 20":
 				if selected_num == "17" or selected_num == "20":
 					balance += player_bets[roulette_number] * 17
-			"18and21":
+			"18 and 21":
 				if selected_num == "18" or selected_num == "21":
 					balance += player_bets[roulette_number] * 17
-			"19and22":
+			"19 and 22":
 				if selected_num == "19" or selected_num == "22":
 					balance += player_bets[roulette_number] * 17
-			"20and23":
+			"20 and 23":
 				if selected_num == "20" or selected_num == "23":
 					balance += player_bets[roulette_number] * 17
-			"21and24":
+			"21 and 24":
 				if selected_num == "21" or selected_num == "24":
 					balance += player_bets[roulette_number] * 17
-			"22and25":
+			"22 and 25":
 				if selected_num == "22" or selected_num == "25":
 					balance += player_bets[roulette_number] * 17
-			"23and26":
+			"23 and 26":
 				if selected_num == "23" or selected_num == "26":
 					balance += player_bets[roulette_number] * 17
-			"24and27":
+			"24 and 27":
 				if selected_num == "24" or selected_num == "27":
 					balance += player_bets[roulette_number] * 17
-			"25and28":
+			"25 and 28":
 				if selected_num == "25" or selected_num == "28":
 					balance += player_bets[roulette_number] * 17
-			"26and29":
+			"26 and 29":
 				if selected_num == "26" or selected_num == "29":
 					balance += player_bets[roulette_number] * 17
-			"27and30":
+			"27 and 30":
 				if selected_num == "27" or selected_num == "30":
 					balance += player_bets[roulette_number] * 17
-			"28and31":
+			"28 and 31":
 				if selected_num == "28" or selected_num == "31":
 					balance += player_bets[roulette_number] * 17
-			"29and32":
+			"29 and 32":
 				if selected_num == "29" or selected_num == "32":
 					balance += player_bets[roulette_number] * 17
-			"30and33":
+			"30 and 33":
 				if selected_num == "30" or selected_num == "33":
 					balance += player_bets[roulette_number] * 17
-			"31and34":
+			"31 and 34":
 				if selected_num == "31" or selected_num == "34":
 					balance += player_bets[roulette_number] * 17
-			"32and35":
+			"32 and 35":
 				if selected_num == "32" or selected_num == "35":
 					balance += player_bets[roulette_number] * 17
-			"33and36":
+			"33 and 36":
 				if selected_num == "33" or selected_num == "36":
 					balance += player_bets[roulette_number] * 17
-			"1and2":
+			"1 and 2":
 				if selected_num == "1" or selected_num == "2":
 					balance += player_bets[roulette_number] * 17
-			"2and3":
+			"2 and 3":
 				if selected_num == "2" or selected_num == "3":
 					balance += player_bets[roulette_number] * 17
-			"4and5":
+			"4 and 5":
 				if selected_num == "4" or selected_num == "5":
 					balance += player_bets[roulette_number] * 17
-			"5and6":
+			"5 and 6":
 				if selected_num == "5" or selected_num == "6":
 					balance += player_bets[roulette_number] * 17
-			"7and8":
+			"7 and 8":
 				if selected_num == "7" or selected_num == "8":
 					balance += player_bets[roulette_number] * 17
-			"8and9":
+			"8 and 9":
 				if selected_num == "8" or selected_num == "9":
 					balance += player_bets[roulette_number] * 17
-			"10and11":
+			"10 and 11":
 				if selected_num == "10" or selected_num == "11":
 					balance += player_bets[roulette_number] * 17
-			"11and12":
+			"11 and 12":
 				if selected_num == "11" or selected_num == "12":
 					balance += player_bets[roulette_number] * 17
-			"13and14":
+			"13 and 14":
 				if selected_num == "13" or selected_num == "14":
 					balance += player_bets[roulette_number] * 17
-			"14and15":
+			"14 and 15":
 				if selected_num == "14" or selected_num == "15":
 					balance += player_bets[roulette_number] * 17
-			"16and17":
+			"16 and 17":
 				if selected_num == "16" or selected_num == "17":
 					balance += player_bets[roulette_number] * 17
-			"17and18":
+			"17 and 18":
 				if selected_num == "17" or selected_num == "18":
 					balance += player_bets[roulette_number] * 17
-			"19and20":
+			"19 and 20":
 				if selected_num == "19" or selected_num == "20":
 					balance += player_bets[roulette_number] * 17
-			"20and21":
+			"20 and 21":
 				if selected_num == "20" or selected_num == "21":
 					balance += player_bets[roulette_number] * 17
-			"22and23":
+			"22 and 23":
 				if selected_num == "22" or selected_num == "23":
 					balance += player_bets[roulette_number] * 17
-			"23and24":
+			"23 and 24":
 				if selected_num == "23" or selected_num == "24":
 					balance += player_bets[roulette_number] * 17
-			"25and26":
+			"25 and 26":
 				if selected_num == "25" or selected_num == "26":
 					balance += player_bets[roulette_number] * 17
-			"26and27":
+			"26 and 27":
 				if selected_num == "26" or selected_num == "27":
 					balance += player_bets[roulette_number] * 17
-			"28and29":
+			"28 and 29":
 				if selected_num == "28" or selected_num == "29":
 					balance += player_bets[roulette_number] * 17
-			"29and30":
+			"29 and 30":
 				if selected_num == "29" or selected_num == "30":
 					balance += player_bets[roulette_number] * 17
-			"31and32":
+			"31 and 32":
 				if selected_num == "31" or selected_num == "32":
 					balance += player_bets[roulette_number] * 17
-			"32and33":
+			"32 and 33":
 				if selected_num == "32" or selected_num == "33":
 					balance += player_bets[roulette_number] * 17
-			"34and35":
+			"34 and 35":
 				if selected_num == "34" or selected_num == "35":
 					balance += player_bets[roulette_number] * 17
-			"35and36":
+			"35 and 36":
 				if selected_num == "35" or selected_num == "36":
 					balance += player_bets[roulette_number] * 17
 			"3_6_2_5":
@@ -836,10 +798,51 @@ func spin_wheel():
 					
 		balance_text2.text = "Balance: " + str(balance)
 		balance_text.text = "Balance: " + str(balance)
+		
+		clear_board()
+		
+	
+		
+	
+func clear_board():
 		player_bets.clear()
-			
-		
-		
+		var betting_board = [
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot, $MarginContainerSingles/GridContainerSingles/RouletteSlot2,$MarginContainerSingles/GridContainerSingles/RouletteSlot3,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot4,$MarginContainerSingles/GridContainerSingles/RouletteSlot5,$MarginContainerSingles/GridContainerSingles/RouletteSlot6,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot7,$MarginContainerSingles/GridContainerSingles/RouletteSlot8,$MarginContainerSingles/GridContainerSingles/RouletteSlot9,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot10,$MarginContainerSingles/GridContainerSingles/RouletteSlot11,$MarginContainerSingles/GridContainerSingles/RouletteSlot12,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot13,$MarginContainerSingles/GridContainerSingles/RouletteSlot14,$MarginContainerSingles/GridContainerSingles/RouletteSlot15,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot16,$MarginContainerSingles/GridContainerSingles/RouletteSlot17,$MarginContainerSingles/GridContainerSingles/RouletteSlot18,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot19,$MarginContainerSingles/GridContainerSingles/RouletteSlot20,$MarginContainerSingles/GridContainerSingles/RouletteSlot21,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot22,$MarginContainerSingles/GridContainerSingles/RouletteSlot23,$MarginContainerSingles/GridContainerSingles/RouletteSlot24,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot25,$MarginContainerSingles/GridContainerSingles/RouletteSlot26,$MarginContainerSingles/GridContainerSingles/RouletteSlot27,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot28,$MarginContainerSingles/GridContainerSingles/RouletteSlot29,$MarginContainerSingles/GridContainerSingles/RouletteSlot30,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot31,$MarginContainerSingles/GridContainerSingles/RouletteSlot32,$MarginContainerSingles/GridContainerSingles/RouletteSlot33,
+			$MarginContainerSingles/GridContainerSingles/RouletteSlot34,$MarginContainerSingles/GridContainerSingles/RouletteSlot35,$MarginContainerSingles/GridContainerSingles/RouletteSlot36,
+			$MarginContainerQuads/GridContainerQuads/RouletteSlot37,$MarginContainerQuads/GridContainerQuads/RouletteSlot38,$MarginContainerQuads/GridContainerQuads/RouletteSlot39,$MarginContainerQuads/GridContainerQuads/RouletteSlot40,
+			$MarginContainerQuads/GridContainerQuads/RouletteSlot41,$MarginContainerQuads/GridContainerQuads/RouletteSlot42,$MarginContainerQuads/GridContainerQuads/RouletteSlot43,$MarginContainerQuads/GridContainerQuads/RouletteSlot44,
+			$MarginContainerQuads/GridContainerQuads/RouletteSlot45,$MarginContainerQuads/GridContainerQuads/RouletteSlot46,$MarginContainerQuads/GridContainerQuads/RouletteSlot47,$MarginContainerQuads/GridContainerQuads/RouletteSlot48,
+			$MarginContainerQuads/GridContainerQuads/RouletteSlot49,$MarginContainerQuads/GridContainerQuads/RouletteSlot50,$MarginContainerQuads/GridContainerQuads/RouletteSlot51,$MarginContainerQuads/GridContainerQuads/RouletteSlot52,
+			$MarginContainerQuads/GridContainerQuads/RouletteSlot53,$MarginContainerQuads/GridContainerQuads/RouletteSlot54,$MarginContainerQuads/GridContainerQuads/RouletteSlot55,$MarginContainerQuads/GridContainerQuads/RouletteSlot56,
+			$MarginContainerQuads/GridContainerQuads/RouletteSlot57,$MarginContainerQuads/GridContainerQuads/RouletteSlot58,$MarginContainerVertDoubles/GridContainer/RouletteSlot59,$MarginContainerVertDoubles/GridContainer/RouletteSlot60,
+			$MarginContainerVertDoubles/GridContainer/RouletteSlot61,$MarginContainerVertDoubles/GridContainer/RouletteSlot62,$MarginContainerVertDoubles/GridContainer/RouletteSlot63,$MarginContainerVertDoubles/GridContainer/RouletteSlot64,
+			$MarginContainerVertDoubles/GridContainer/RouletteSlot65,$MarginContainerVertDoubles/GridContainer/RouletteSlot66,$MarginContainerVertDoubles/GridContainer/RouletteSlot67,$MarginContainerVertDoubles/GridContainer/RouletteSlot68,
+			$MarginContainerVertDoubles/GridContainer/RouletteSlot69,$MarginContainerVertDoubles/GridContainer/RouletteSlot70,$MarginContainerVertDoubles/GridContainer/RouletteSlot71,$MarginContainerVertDoubles/GridContainer/RouletteSlot72,
+			$MarginContainerVertDoubles/GridContainer/RouletteSlot73,$MarginContainerVertDoubles/GridContainer/RouletteSlot74,$MarginContainerVertDoubles/GridContainer/RouletteSlot75,$MarginContainerVertDoubles/GridContainer/RouletteSlot76,
+			$MarginContainerVertDoubles/GridContainer/RouletteSlot77,$MarginContainerVertDoubles/GridContainer/RouletteSlot78,$MarginContainerVertDoubles/GridContainer/RouletteSlot79,$MarginContainerVertDoubles/GridContainer/RouletteSlot80,
+			$MarginContainerVertDoubles/GridContainer/RouletteSlot81,$MarginContainerVertDoubles/GridContainer/RouletteSlot82,$MarginContainerVertDoubles/GridContainer/RouletteSlot83,$MarginContainerVertDoubles/GridContainer/RouletteSlot84,
+			$MarginContainerVertDoubles/GridContainer/RouletteSlot85,$MarginContainerVertDoubles/GridContainer/RouletteSlot86,$MarginContainerVertDoubles/GridContainer/RouletteSlot87,$MarginContainerVertDoubles/GridContainer/RouletteSlot88,
+			$MarginContainerVertDoubles/GridContainer/RouletteSlot89,$MarginContainerVertDoubles/GridContainer/RouletteSlot90,$MarginContainerVertDoubles/GridContainer/RouletteSlot91,$MarginContainerHorzDoubles/GridContainer/RouletteSlot92,
+			$MarginContainerHorzDoubles/GridContainer/RouletteSlot93,$MarginContainerHorzDoubles/GridContainer/RouletteSlot94,$MarginContainerHorzDoubles/GridContainer/RouletteSlot95,$MarginContainerHorzDoubles/GridContainer/RouletteSlot96,
+			$MarginContainerHorzDoubles/GridContainer/RouletteSlot97,$MarginContainerHorzDoubles/GridContainer/RouletteSlot98,$MarginContainerHorzDoubles/GridContainer/RouletteSlot99,$MarginContainerHorzDoubles/GridContainer/RouletteSlot100,
+			$MarginContainerHorzDoubles/GridContainer/RouletteSlot100,$MarginContainerHorzDoubles/GridContainer/RouletteSlot101,$MarginContainerHorzDoubles/GridContainer/RouletteSlot102,$MarginContainerHorzDoubles/GridContainer/RouletteSlot103,
+			$MarginContainerHorzDoubles/GridContainer/RouletteSlot104,$MarginContainerHorzDoubles/GridContainer/RouletteSlot105,$MarginContainerHorzDoubles/GridContainer/RouletteSlot106,$MarginContainerHorzDoubles/GridContainer/RouletteSlot107,
+			$MarginContainerHorzDoubles/GridContainer/RouletteSlot108,$MarginContainerHorzDoubles/GridContainer/RouletteSlot109,$MarginContainerHorzDoubles/GridContainer/RouletteSlot110,$MarginContainerHorzDoubles/GridContainer/RouletteSlot111,
+			$MarginContainerHorzDoubles/GridContainer/RouletteSlot112,$MarginContainerHorzDoubles/GridContainer/RouletteSlot113,$MarginContainerHorzDoubles/GridContainer/RouletteSlot114,$MarginContainerHorzDoubles/GridContainer/RouletteSlot115
+		]
+		for item in betting_board:
+			if item.texture != null:
+				item.texture = null
 
 func _on_wheel_timer_timeout():
 	label_num = randi_range(0,37)
