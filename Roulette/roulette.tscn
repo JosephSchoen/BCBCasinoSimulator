@@ -1,12 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://x2ea6qh76rt5"]
+[gd_scene load_steps=22 format=3 uid="uid://x2ea6qh76rt5"]
 
 [ext_resource type="Script" path="res://Roulette/roulette.gd" id="1_jclcb"]
 [ext_resource type="PackedScene" uid="uid://qo1c7alxl6x8" path="res://drag_and_drop.tscn" id="3_nwqvl"]
 [ext_resource type="Texture2D" uid="uid://h4ep1wpurfs2" path="res://Roulette/Assets/roulette-finish-blowup.png" id="4_84dsl"]
 [ext_resource type="Script" path="res://drag_and_drop_slots.gd" id="5_k86mo"]
+[ext_resource type="PackedScene" uid="uid://urfhk58sg1qr" path="res://chip_drag_and_drop.tscn" id="6_jplvu"]
 [ext_resource type="Texture2D" uid="uid://da36hpmkwrrdj" path="res://Roulette/Assets/white_chip.png" id="6_mhsax"]
 [ext_resource type="Script" path="res://Roulette/Camera2D.gd" id="6_s4jry"]
-[ext_resource type="Script" path="res://Roulette/TextureRect.gd" id="7_mu13w"]
 [ext_resource type="Texture2D" uid="uid://c5n7me4jnp6cy" path="res://Roulette/Assets/red_chip.png" id="8_868n3"]
 [ext_resource type="Texture2D" uid="uid://bwxpeow4s3duk" path="res://Roulette/Assets/green_chip.png" id="9_72vap"]
 [ext_resource type="Texture2D" uid="uid://skn6yp84xe7n" path="res://Roulette/Assets/blue_chip.png" id="10_v0jjm"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://oo6bqry0dejn" path="res://Roulette/Assets/gold_chip.png" id="13_8hw3p"]
 [ext_resource type="Texture2D" uid="uid://dknvbkqfqqa8y" path="res://Roulette/Assets/sky_blue_chip.png" id="14_pgfh0"]
 [ext_resource type="Texture2D" uid="uid://655cvibqrs8w" path="res://Roulette/Assets/yellow_chip.png" id="15_xxwb4"]
+[ext_resource type="AudioStream" uid="uid://dpc20byh6teos" path="res://Roulette/Sound_Effects/chip_remove.wav" id="16_jk5bm"]
+[ext_resource type="AudioStream" uid="uid://8h68hdujerp5" path="res://Roulette/Sound_Effects/pokerchip.wav" id="17_dwjla"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1b68"]
 size = Vector2(30.5, 30)
@@ -1434,6 +1436,65 @@ script = ExtResource("5_k86mo")
 layout_mode = 2
 script = ExtResource("5_k86mo")
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 108.0
+offset_top = 523.0
+offset_right = 930.0
+offset_bottom = 647.0
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 33
+columns = 9
+
+[node name="WhiteChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("6_mhsax")
+expand_mode = 2
+
+[node name="RedChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("8_868n3")
+expand_mode = 2
+
+[node name="GreenChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("9_72vap")
+expand_mode = 2
+
+[node name="BlueChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("10_v0jjm")
+expand_mode = 2
+
+[node name="BlackChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("11_v27et")
+expand_mode = 2
+
+[node name="PurpleChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("12_2re5a")
+expand_mode = 2
+
+[node name="GoldChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("13_8hw3p")
+expand_mode = 2
+
+[node name="SkyBlueChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("14_pgfh0")
+expand_mode = 2
+
+[node name="YellowChip" parent="MarginContainer/GridContainer" instance=ExtResource("6_jplvu")]
+layout_mode = 2
+texture = ExtResource("15_xxwb4")
+expand_mode = 2
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
 script = ExtResource("6_s4jry")
@@ -1469,64 +1530,13 @@ text = "Back to Betting"
 
 [node name="BettingChips" type="Node2D" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 108.0
-offset_top = 523.0
-offset_right = 930.0
-offset_bottom = 647.0
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
+[node name="SoundEffects" type="Node" parent="."]
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 36
-columns = 9
+[node name="chip_grab" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("16_jk5bm")
 
-[node name="WhiteChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("6_mhsax")
-script = ExtResource("7_mu13w")
-
-[node name="RedChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("8_868n3")
-script = ExtResource("7_mu13w")
-
-[node name="GreenChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("9_72vap")
-script = ExtResource("7_mu13w")
-
-[node name="BlueChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("10_v0jjm")
-script = ExtResource("7_mu13w")
-
-[node name="BlackChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("11_v27et")
-script = ExtResource("7_mu13w")
-
-[node name="PurpleChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("12_2re5a")
-script = ExtResource("7_mu13w")
-
-[node name="GoldChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("13_8hw3p")
-script = ExtResource("7_mu13w")
-
-[node name="SkyBlueChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("14_pgfh0")
-script = ExtResource("7_mu13w")
-
-[node name="YellowChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
-layout_mode = 2
-texture = ExtResource("15_xxwb4")
-script = ExtResource("7_mu13w")
+[node name="chip_place" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("17_dwjla")
 
 [connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_1" to="." method="_on_bet_1_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_1" to="." method="_on_bet_1_mouse_exited"]
@@ -1993,9 +2003,6 @@ script = ExtResource("7_mu13w")
 [connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot114" to="." method="_on_texture_rect_2_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot115" to="." method="_on_texture_rect_2_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainerHorzDoubles/GridContainer/RouletteSlot115" to="." method="_on_texture_rect_2_mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="timeout" from="WheelTimer" to="." method="_on_wheel_timer_timeout"]
-[connection signal="button_down" from="BackToBoard" to="." method="_on_back_to_board_button_down"]
 [connection signal="mouse_entered" from="MarginContainer/GridContainer/WhiteChip" to="." method="_on_white_chip_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/GridContainer/WhiteChip" to="." method="_on_white_chip_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/GridContainer/RedChip" to="." method="_on_red_chip_mouse_entered"]
@@ -2014,3 +2021,6 @@ script = ExtResource("7_mu13w")
 [connection signal="mouse_exited" from="MarginContainer/GridContainer/SkyBlueChip" to="." method="_on_sky_blue_chip_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/GridContainer/YellowChip" to="." method="_on_yellow_chip_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/GridContainer/YellowChip" to="." method="_on_yellow_chip_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="WheelTimer" to="." method="_on_wheel_timer_timeout"]
+[connection signal="button_down" from="BackToBoard" to="." method="_on_back_to_board_button_down"]

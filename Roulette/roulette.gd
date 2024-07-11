@@ -47,7 +47,6 @@ func _ready():
 	balance_text.text = "Balance: " + str(balance)
 	cannot_bet_label.text = "Sorry, you do not have the funds to do that."
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("Left Click"):
@@ -56,7 +55,6 @@ func _process(delta):
 		left_click = false
 	in_betting_or_chip_area()
 	check_place_or_return_bet()
-
 
 func in_betting_or_chip_area():
 	if white_chip == true:
@@ -112,7 +110,6 @@ func in_betting_or_chip_area():
 				cannot_bet_label.show()
 				timer.start(3)
 				
-	
 	# If the mouse is in area of the black chip
 	elif black_chip == true:
 		# If the user left clicks
@@ -183,8 +180,11 @@ func in_betting_or_chip_area():
 func check_place_or_return_bet():
 	# If the player is in a spot where they can bet
 	if can_bet == true:
+		print('can')
 		if chip_grabbed == true:
+			print('grab')
 			if left_click == false:
+				print('left')
 				chip_grabbed = false
 				bet_select()
 				place_bet()
@@ -503,158 +503,160 @@ func spin_wheel():
 	number_label.show()
 
 	for bet in player_bets:
+		print(bet)
+		print(selected_num)
 		match bet:
 			"00":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"0":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"1":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"2":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"3":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"4":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"5":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"6":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"7":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"8":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"9":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"10":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"11":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"12":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"13":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"14":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"15":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"16":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"17":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"18":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"19":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"20":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"21":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"22":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"23":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"24":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"25":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"26":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"27":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"28":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"29":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"30":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"31":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"32":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"33":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"34":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"35":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"36":
 				if selected_num == bet:
-					balance += player_bets[roulette_number] * 36
+					balance += player_bets[bet] * 36
 			"1st12":
 				if int(selected_num) > 0 and int(selected_num) <= 12:
-					balance += player_bets[roulette_number] * 3
+					balance += player_bets[bet] * 3
 			"2nd12":
 				if int(selected_num) > 12 and int(selected_num) <= 24:
-					balance += player_bets[roulette_number] * 3
+					balance += player_bets[bet] * 3
 			"3rd12":
 				if int(selected_num) > 24:
-					balance += player_bets[roulette_number] * 3
+					balance += player_bets[bet] * 3
 			"1-18":
 				if int(selected_num) > 0 and int(selected_num) < 19:
-					balance += player_bets[roulette_number] * 2
+					balance += player_bets[bet] * 2
 			"19-36":
 				if int(selected_num) > 18:
-					balance += player_bets[roulette_number] * 2
+					balance += player_bets[bet] * 2
 			"Top Row":
 				if int(selected_num) % 3 == 0:
-					balance += player_bets[roulette_number] * 3
+					balance += player_bets[bet] * 3
 			"Middle Row":
 				if int(selected_num) % 3 == 2:
-					balance += player_bets[roulette_number] * 3
+					balance += player_bets[bet] * 3
 			"Bottom Row":
 				if int(selected_num) % 3 == 1:
-					balance += player_bets[roulette_number] * 3
+					balance += player_bets[bet] * 3
 			"Even":
 				if int(selected_num) % 2 == 0:
-					balance += player_bets[roulette_number] * 2
+					balance += player_bets[bet] * 2
 			"Odd":
 				if int(selected_num) % 2 == 1:
-					balance += player_bets[roulette_number] * 2
+					balance += player_bets[bet] * 2
 			"Red":
 				const red = [
 					1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36
 				]
 				for num in red:
 					if int(selected_num) == num:
-						balance += player_bets[roulette_number] * 2
+						balance += player_bets[bet] * 2
 						break
 			"Black":
 				const black = [
@@ -662,255 +664,255 @@ func spin_wheel():
 				]
 				for num in black:
 					if int(selected_num) == num:
-						balance += player_bets[roulette_number] * 2
+						balance += player_bets[bet] * 2
 						break
 			"Green":
 				if selected_num == "0" or selected_num == "00":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"1 and 4":
 				if selected_num == "1" or selected_num == "4":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"2 and 5":
 				if selected_num == "2" or selected_num == "5":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"3 and 6":
 				if selected_num == "3" or selected_num == "6":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"4 and 7":
 				if selected_num == "4" or selected_num == "7":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"5 and 8":
 				if selected_num == "5" or selected_num == "8":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"6 and 9":
 				if selected_num == "6" or selected_num == "9":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"7 and 10":
 				if selected_num == "7" or selected_num == "10":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"8 and 11":
 				if selected_num == "8" or selected_num == "11":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"9 and 12":
 				if selected_num == "9" or selected_num == "12":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"10 and 13":
 				if selected_num == "10" or selected_num == "13":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"11 and 14":
 				if selected_num == "11" or selected_num == "14":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"12 and 15":
 				if selected_num == "12" or selected_num == "15":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"13 and 16":
 				if selected_num == "13" or selected_num == "16":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"14 and 17":
 				if selected_num == "14" or selected_num == "17":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"15 and 18":
 				if selected_num == "15" or selected_num == "18":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"16 and 19":
 				if selected_num == "16" or selected_num == "19":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"17 and 20":
 				if selected_num == "17" or selected_num == "20":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"18 and 21":
 				if selected_num == "18" or selected_num == "21":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"19 and 22":
 				if selected_num == "19" or selected_num == "22":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"20 and 23":
 				if selected_num == "20" or selected_num == "23":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"21 and 24":
 				if selected_num == "21" or selected_num == "24":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"22 and 25":
 				if selected_num == "22" or selected_num == "25":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"23 and 26":
 				if selected_num == "23" or selected_num == "26":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"24 and 27":
 				if selected_num == "24" or selected_num == "27":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"25 and 28":
 				if selected_num == "25" or selected_num == "28":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"26 and 29":
 				if selected_num == "26" or selected_num == "29":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"27 and 30":
 				if selected_num == "27" or selected_num == "30":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"28 and 31":
 				if selected_num == "28" or selected_num == "31":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"29 and 32":
 				if selected_num == "29" or selected_num == "32":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"30 and 33":
 				if selected_num == "30" or selected_num == "33":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"31 and 34":
 				if selected_num == "31" or selected_num == "34":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"32 and 35":
 				if selected_num == "32" or selected_num == "35":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"33 and 36":
 				if selected_num == "33" or selected_num == "36":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"1 and 2":
 				if selected_num == "1" or selected_num == "2":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"2 and 3":
 				if selected_num == "2" or selected_num == "3":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"4 and 5":
 				if selected_num == "4" or selected_num == "5":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"5 and 6":
 				if selected_num == "5" or selected_num == "6":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"7 and 8":
 				if selected_num == "7" or selected_num == "8":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"8 and 9":
 				if selected_num == "8" or selected_num == "9":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"10 and 11":
 				if selected_num == "10" or selected_num == "11":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"11 and 12":
 				if selected_num == "11" or selected_num == "12":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"13 and 14":
 				if selected_num == "13" or selected_num == "14":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"14 and 15":
 				if selected_num == "14" or selected_num == "15":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"16 and 17":
 				if selected_num == "16" or selected_num == "17":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"17 and 18":
 				if selected_num == "17" or selected_num == "18":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"19 and 20":
 				if selected_num == "19" or selected_num == "20":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"20 and 21":
 				if selected_num == "20" or selected_num == "21":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"22 and 23":
 				if selected_num == "22" or selected_num == "23":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"23 and 24":
 				if selected_num == "23" or selected_num == "24":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"25 and 26":
 				if selected_num == "25" or selected_num == "26":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"26 and 27":
 				if selected_num == "26" or selected_num == "27":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"28 and 29":
 				if selected_num == "28" or selected_num == "29":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"29 and 30":
 				if selected_num == "29" or selected_num == "30":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"31 and 32":
 				if selected_num == "31" or selected_num == "32":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"32 and 33":
 				if selected_num == "32" or selected_num == "33":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"34 and 35":
 				if selected_num == "34" or selected_num == "35":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"35 and 36":
 				if selected_num == "35" or selected_num == "36":
-					balance += player_bets[roulette_number] * 17
+					balance += player_bets[bet] * 17
 			"3_6_2_5":
 				if selected_num == "3" or selected_num == "6" or selected_num == "2" or selected_num == "5":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"2_5_1_4":
 				if selected_num == "2" or selected_num == "5" or selected_num == "1" or selected_num == "4":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"6_9_5_8":
 				if selected_num == "6" or selected_num == "9" or selected_num == "5" or selected_num == "8":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"5_8_4_7":
 				if selected_num == "5" or selected_num == "8" or selected_num == "4" or selected_num == "7":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"9_12_8_11":
 				if selected_num == "9" or selected_num == "12" or selected_num == "9" or selected_num == "11":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"8_11_7_10":
 				if selected_num == "8" or selected_num == "11" or selected_num == "7" or selected_num == "10":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"12_15_11_14":
 				if selected_num == "12" or selected_num == "15" or selected_num == "11" or selected_num == "14":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"11_14_10_13":
 				if selected_num == "11" or selected_num == "14" or selected_num == "10" or selected_num == "13":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"15_18_14_17":
 				if selected_num == "15" or selected_num == "18" or selected_num == "14" or selected_num == "17":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"14_17_13_16":
 				if selected_num == "14" or selected_num == "17" or selected_num == "13" or selected_num == "16":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"18_21_17_20":
 				if selected_num == "18" or selected_num == "21" or selected_num == "17" or selected_num == "20":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"17_20_16_19":
 				if selected_num == "17" or selected_num == "20" or selected_num == "16" or selected_num == "19":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"21_24_20_23":
 				if selected_num == "21" or selected_num == "24" or selected_num == "20" or selected_num == "23":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"20_23_19_22":
 				if selected_num == "20" or selected_num == "23" or selected_num == "19" or selected_num == "22":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"24_27_23_26":
 				if selected_num == "24" or selected_num == "27" or selected_num == "23" or selected_num == "26":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"23_26_22_25":
 				if selected_num == "23" or selected_num == "26" or selected_num == "22" or selected_num == "25":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"27_30_26_29":
 				if selected_num == "27" or selected_num == "30" or selected_num == "26" or selected_num == "29":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"26_29_25_28":
 				if selected_num == "26" or selected_num == "29" or selected_num == "25" or selected_num == "28":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"30_33_29_32":
 				if selected_num == "30" or selected_num == "33" or selected_num == "29" or selected_num == "32":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"29_32_28_31":
 				if selected_num == "29" or selected_num == "32" or selected_num == "28" or selected_num == "31":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"33_36_32_35":
 				if selected_num == "33" or selected_num == "36" or selected_num == "32" or selected_num == "35":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			"32_35_31_34":
 				if selected_num == "32" or selected_num == "35" or selected_num == "31" or selected_num == "34":
-					balance += player_bets[roulette_number] * 6
+					balance += player_bets[bet] * 6
 			
 			
 					
-		balance_text2.text = "Balance: " + str(balance)
-		balance_text.text = "Balance: " + str(balance)
+	balance_text2.text = "Balance: " + str(balance)
+	balance_text.text = "Balance: " + str(balance)
 		
-		clear_board()
+	clear_board()
 		
 	
 		

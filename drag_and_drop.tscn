@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://qo1c7alxl6x8"]
+[gd_scene load_steps=4 format=3 uid="uid://qo1c7alxl6x8"]
 
 [ext_resource type="Script" path="res://TextureRect.gd" id="1_vv5vl"]
+[ext_resource type="AudioStream" uid="uid://dpc20byh6teos" path="res://Roulette/Sound_Effects/chip_remove.wav" id="2_0121d"]
+[ext_resource type="AudioStream" uid="uid://8h68hdujerp5" path="res://Roulette/Sound_Effects/pokerchip.wav" id="2_qpj4r"]
 
 [node name="TextureRect" type="TextureRect"]
 custom_minimum_size = Vector2(30, 30)
@@ -11,10 +13,17 @@ expand_mode = 1
 script = ExtResource("1_vv5vl")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 show_behind_parent = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
 offset_right = 29.0
 offset_bottom = 29.0
 mouse_filter = 2
+
+[node name="chip_grab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0121d")
+bus = &"Sfx"
+
+[node name="chip_place" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qpj4r")
+bus = &"Sfx"

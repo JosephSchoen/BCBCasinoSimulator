@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7myatyesp53n"]
+[gd_scene load_steps=11 format=3 uid="uid://b7myatyesp53n"]
 
 [ext_resource type="Texture2D" uid="uid://c7sry65sh8qt2" path="res://Backgrounds/textbox.png" id="1_btotq"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_g7fni"]
+[ext_resource type="Texture2D" uid="uid://b1xs7w20iwl5v" path="res://Roulette/Assets/MainMenu/settings_button_blowup.png" id="3_8g4ap"]
 [ext_resource type="PackedScene" uid="uid://detmlnr7gd12c" path="res://Settings/settings_tab_container.tscn" id="3_wdvny"]
+[ext_resource type="Texture2D" uid="uid://d4mo44vdoq8wn" path="res://Roulette/Assets/MainMenu/exit_button_blowup.png" id="4_edspg"]
+[ext_resource type="Texture2D" uid="uid://lbq3oggr5awp" path="res://Roulette/Assets/MainMenu/menulogo_blowup.png" id="4_f45sc"]
+[ext_resource type="Texture2D" uid="uid://ttwsfxqy58n1" path="res://Roulette/Assets/MainMenu/play_button_blowup.png" id="5_l4mo6"]
+[ext_resource type="Texture2D" uid="uid://cqh8rvk7pn03y" path="res://Roulette/Assets/MainMenu/back_button_blowup.png" id="8_s7dxu"]
 
 [sub_resource type="SystemFont" id="SystemFont_www3o"]
 font_names = PackedStringArray("Comic Sans MS")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1a5cv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkpwh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v4aw"]
 
@@ -24,18 +25,6 @@ script = ExtResource("1_g7fni")
 position = Vector2(571.5, 331)
 scale = Vector2(36.2188, 27.3125)
 texture = ExtResource("1_btotq")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 60.0
-offset_top = 49.0
-offset_right = 584.0
-offset_bottom = 158.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 23
-theme_override_fonts/font = SubResource("SystemFont_www3o")
-theme_override_font_sizes/font_size = 64
-text = "Casino Simulator"
 
 [node name="Label2" type="Label" parent="."]
 visible = false
@@ -53,33 +42,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 74.0
-offset_top = 196.0
-offset_right = 518.0
-offset_bottom = 612.0
+offset_left = 1009.0
+offset_top = 37.0
+offset_right = 1209.0
+offset_bottom = 625.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 25
 
-[node name="GameButton" type="Button" parent="VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game Select"
+texture_normal = ExtResource("3_8g4ap")
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_1a5cv")
+texture_normal = ExtResource("4_edspg")
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Settings"
-
-[node name="VSeparator2" type="VSeparator" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_constants/separation = 0
-theme_override_styles/separator = SubResource("StyleBoxEmpty_rkpwh")
-
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Quit"
+[node name="GameButton" type="TextureButton" parent="."]
+offset_left = 66.0
+offset_top = 235.0
+offset_right = 546.0
+offset_bottom = 425.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_l4mo6")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 visible = false
@@ -151,17 +135,28 @@ offset_bottom = 655.0
 [node name="Settings_Tab_Container" parent="MarginContainer3" instance=ExtResource("3_wdvny")]
 layout_mode = 2
 
-[node name="BackToMain" type="Button" parent="."]
-visible = false
-offset_left = 13.0
-offset_top = 15.0
-offset_right = 204.0
-offset_bottom = 68.0
-text = "Main Menu
-"
+[node name="MenulogoBlowup" type="Sprite2D" parent="."]
+position = Vector2(323, 112)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_f45sc")
 
-[connection signal="pressed" from="VBoxContainer/GameButton" to="." method="_on_game_button_pressed"]
+[node name="MenulogoBlowup2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(578, 105)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_f45sc")
+
+[node name="BackToMain" type="TextureButton" parent="."]
+visible = false
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 203.0
+offset_bottom = 192.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_s7dxu")
+
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="GameButton" to="." method="_on_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/RouletteButton" to="." method="_on_roulette_button_pressed"]
 [connection signal="pressed" from="BackToMain" to="." method="_on_back_to_main_pressed"]

@@ -1,21 +1,12 @@
 extends TextureRect
 
-var selected = false
-
-@onready var chip = $"." as TextureRect
-
-var chip_count = 0
-@onready var chip_sprite = preload("res://Roulette/Assets/correctscuffedchip.png")
-
-
-func _ready():
-	pass
-
+@onready var chip_grab = $chip_grab as AudioStreamPlayer
+@onready var chip_place = $chip_place as AudioStreamPlayer
 
 # Triggers when you click and drag
 func _get_drag_data(at_position):
 	
-	
+	chip_grab.play()
 	var preview_texture = TextureRect.new()
 	preview_texture.texture = texture
 	preview_texture.expand_mode = 1
@@ -35,5 +26,6 @@ func _can_drop_data(at_position, data):
 
 # Triggers when you drop dragged item
 func _drop_data(at_position, data):
+	chip_place.play()
 	texture = data
 
