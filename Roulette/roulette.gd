@@ -1,9 +1,16 @@
 extends Node2D
 
-@onready var balance = 100
+@onready var balance = 10000
 var can_bet = false
+var white_chip = false
+var red_chip = false
+var green_chip = false
 var blue_chip = false
 var black_chip = false
+var purple_chip = false
+var gold_chip = false
+var sky_blue_chip = false
+var yellow_chip = false
 var chip_grabbed = false
 var current_chip = ""
 @onready var balance_text = $Label as Label
@@ -32,6 +39,8 @@ const numbers = ["00", "0", "1", "2", "3", "4", "5", "6",
 @onready var wheel_timer = $WheelTimer as Timer
 var label_num = null
 
+var left_click = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,21 +50,64 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_pressed("Left Click"):
+		left_click = true
+	else:
+		left_click = false
 	in_betting_or_chip_area()
 	check_place_or_return_bet()
 
 
 func in_betting_or_chip_area():
-	# If the mouse is in the area of the blue chip
-	if blue_chip == true:
+	if white_chip == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
-			if balance >= 10:
+			if balance >= 1:
+				# Negate the boolean chip grabbed. Supposed to effectively return
+				# the chip to the pile if they have it grabbed and click back on it
+				chip_grabbed = !chip_grabbed
+				chip_color = "White Chip"
+				bet_amount = 1
+			else:
+				cannot_bet_label.show()
+				timer.start(3)
+				
+	elif red_chip == true:
+		# If the user left clicks
+		if Input.is_action_just_pressed("Left Click"):
+			if balance >= 5:
+				# Negate the boolean chip grabbed. Supposed to effectively return
+				# the chip to the pile if they have it grabbed and click back on it
+				chip_grabbed = !chip_grabbed
+				chip_color = "Red Chip"
+				bet_amount = 5
+			else:
+				cannot_bet_label.show()
+				timer.start(3)
+	
+	elif green_chip == true:
+		# If the user left clicks
+		if Input.is_action_just_pressed("Left Click"):
+			if balance >= 25:
+				# Negate the boolean chip grabbed. Supposed to effectively return
+				# the chip to the pile if they have it grabbed and click back on it
+				chip_grabbed = !chip_grabbed
+				chip_color = "Green Chip"
+				bet_amount = 25
+			else:
+				cannot_bet_label.show()
+				timer.start(3)
+	
+	# If the mouse is in the area of the blue chip
+	elif blue_chip == true:
+		# If the user left clicks
+		if Input.is_action_just_pressed("Left Click"):
+			if balance >= 50:
 				# Negate the boolean chip grabbed. Supposed to effectively return
 				# the chip to the pile if they have it grabbed and click back on it
 				chip_grabbed = !chip_grabbed
 				chip_color = "Blue Chip"
-				bet_amount = 10
+				bet_amount = 50
 			else:
 				cannot_bet_label.show()
 				timer.start(3)
@@ -75,12 +127,64 @@ func in_betting_or_chip_area():
 			else:
 				cannot_bet_label.show()
 				timer.start(3)
+	
+	elif purple_chip == true:
+		# If the user left clicks
+		if Input.is_action_just_pressed("Left Click"):
+			if balance >= 500:
+				# Negate the boolean chip grabbed. Supposed to effectively return
+				# the chip to the pile if they have it grabbed and click back on it
+				chip_grabbed = !chip_grabbed
+				chip_color = "Purple Chip"
+				bet_amount = 500
+			else:
+				cannot_bet_label.show()
+				timer.start(3)
+			
+	elif gold_chip == true:
+		# If the user left clicks
+		if Input.is_action_just_pressed("Left Click"):
+			if balance >= 1000:
+				# Negate the boolean chip grabbed. Supposed to effectively return
+				# the chip to the pile if they have it grabbed and click back on it
+				chip_grabbed = !chip_grabbed
+				chip_color = "Gold Chip"
+				bet_amount = 1000
+			else:
+				cannot_bet_label.show()
+				timer.start(3)
+	
+	elif sky_blue_chip == true:
+		# If the user left clicks
+		if Input.is_action_just_pressed("Left Click"):
+			if balance >= 5000:
+				# Negate the boolean chip grabbed. Supposed to effectively return
+				# the chip to the pile if they have it grabbed and click back on it
+				chip_grabbed = !chip_grabbed
+				chip_color = "Sky Blue Chip"
+				bet_amount = 5000
+			else:
+				cannot_bet_label.show()
+				timer.start(3)
+
+	if yellow_chip == true:
+		# If the user left clicks
+		if Input.is_action_just_pressed("Left Click"):
+			if balance >= 10000:
+				# Negate the boolean chip grabbed. Supposed to effectively return
+				# the chip to the pile if they have it grabbed and click back on it
+				chip_grabbed = !chip_grabbed
+				chip_color = "Yellow Chip"
+				bet_amount = 10000
+			else:
+				cannot_bet_label.show()
+				timer.start(3)
 
 func check_place_or_return_bet():
 	# If the player is in a spot where they can bet
 	if can_bet == true:
 		if chip_grabbed == true:
-			if Input.is_action_just_released("Left Click"):
+			if left_click == false:
 				chip_grabbed = false
 				bet_select()
 				place_bet()
@@ -92,7 +196,6 @@ func check_place_or_return_bet():
 					if Input.is_action_just_pressed("Left Click"):
 						# Set chip_grabbed to true (The player picks up the last chip placed)
 						chip_grabbed = true
-						print('asdfasdfasdfdasf')
 						balance += int(player_bets[roulette_number])
 						bet_amount = player_bets[roulette_number]
 						player_bets.erase(roulette_number)
@@ -121,12 +224,20 @@ func return_bet():
 			balance += 1
 		"Red Chip":
 			balance += 5
-		"Blue Chip":
-			balance += 10
 		"Green Chip":
 			balance += 25
+		"Blue Chip":
+			balance += 50
 		"Black Chip":
 			balance += 100
+		"Purple Chip":
+			balance += 500
+		"Gold Chip":
+			balance += 1000
+		"Sky Blue Chip":
+			balance += 5000
+		"Yellow Chip":
+			balance += 10000
 	
 	# Update the label to display the proper balance
 	balance_text.text = "Balance: " + str(balance)
@@ -157,21 +268,23 @@ func get_chip(bet) -> String:
 			current_chip = "White Chip"
 		5:
 			current_chip = "Red Chip"
-		10:
-			current_chip = "Blue Chip"
 		25:
 			current_chip = "Green Chip"
+		50:
+			current_chip = "Blue Chip"
 		100:
 			current_chip = "Black Chip"
+		500:
+			current_chip = "Purple Chip"
+		1000:
+			current_chip = "Gold Chip"
+		5000:
+			current_chip = "Sky Blue Chip"
+		10000:
+			current_chip = "Yellow Chip"
+		
 	return current_chip
 	
-# Player's mouse enters black chip area
-func _on_texture_rect_3_mouse_entered():
-	black_chip = true
-
-# Player's mouse enters black chip area
-func _on_texture_rect_3_mouse_exited():
-	black_chip = false
 
 
 func _on_timer_timeout():
@@ -389,9 +502,7 @@ func spin_wheel():
 	number_label.text = "The roulette wheel landed on " + str(selected_num) + "."
 	number_label.show()
 
-	
 	for bet in player_bets:
-		
 		match bet:
 			"00":
 				if selected_num == bet:
@@ -848,10 +959,8 @@ func _on_wheel_timer_timeout():
 	label_num = randi_range(0,37)
 	number_label.text = numbers[label_num]
 
-
 func _on_back_to_board_button_down():
 	camera.position.y += 750
-
 
 func _on_red_mouse_entered():
 	can_bet = true
@@ -859,3 +968,738 @@ func _on_red_mouse_entered():
 
 func _on_red_mouse_exited():
 	mouse_exited()
+
+func _on_bet_24_27_23_26_mouse_entered():
+	can_bet = true
+	roulette_number = "24_27_23_26"
+
+func _on_bet_24_27_23_26_mouse_exited():
+	mouse_exited()
+
+func _on_bet_30_33_29_32_mouse_entered():
+	can_bet = true
+	roulette_number = "30_33_29_32"
+
+func _on_bet_30_33_29_32_mouse_exited():
+	mouse_exited()
+
+func _on_bet_27_30_26_29_mouse_entered():
+	can_bet = true
+	roulette_number = "27_30_26_29"
+
+func _on_bet_27_30_26_29_mouse_exited():
+	mouse_exited()
+
+func _on_bet_33_36_32_35_mouse_entered():
+	can_bet = true
+	roulette_number = "33_36_32_35"
+
+func _on_bet_33_36_32_35_mouse_exited():
+	mouse_exited()
+	
+func _on_bet_2_5_1_4_mouse_entered():
+	can_bet = true
+	roulette_number = "2_5_1_4"
+
+func _on_bet_2_5_1_4_mouse_exited():
+	mouse_exited()
+	
+func _on_bet_5_8_4_7_mouse_entered():
+	can_bet = true
+	roulette_number = "5_8_4_7"
+
+func _on_bet_5_8_4_7_mouse_exited():
+	mouse_exited()
+
+func _on_bet_8_11_7_10_mouse_entered():
+	can_bet = true
+	roulette_number = "8_11_7_10"
+
+func _on_bet_8_11_7_10_mouse_exited():
+	mouse_exited()
+
+func _on_bet_11_14_10_13_mouse_entered():
+	can_bet = true
+	roulette_number = "11_14_10_13"
+
+func _on_bet_11_14_10_13_mouse_exited():
+	mouse_exited()
+
+func _on_bet_14_17_13_16_mouse_entered():
+	can_bet = true
+	roulette_number = "14_17_13_16"
+
+func _on_bet_14_17_13_16_mouse_exited():
+	mouse_exited()
+
+func _on_bet_17_20_16_19_mouse_entered():
+	can_bet = true
+	roulette_number = "17_20_16_19"
+
+func _on_bet_17_20_16_19_mouse_exited():
+	mouse_exited()
+
+func _on_bet_20_23_19_22_mouse_entered():
+	can_bet = true
+	roulette_number = "20_23_19_22"
+
+func _on_bet_20_23_19_22_mouse_exited():
+	mouse_exited()
+
+func _on_bet_23_26_22_25_mouse_entered():
+	can_bet = true
+	roulette_number = "23_26_22_25"
+
+func _on_bet_23_26_22_25_mouse_exited():
+	mouse_exited()
+
+func _on_bet_26_29_25_28_mouse_entered():
+	can_bet = true
+	roulette_number = "26_29_25_28"
+
+func _on_bet_26_29_25_28_mouse_exited():
+	mouse_exited()
+
+func _on_bet_29_32_28_31_mouse_entered():
+	can_bet = true
+	roulette_number = "29_32_28_31"
+
+func _on_bet_29_32_28_31_mouse_exited():
+	mouse_exited()
+
+func _on_bet_32_35_31_34_mouse_entered():
+	can_bet = true
+	roulette_number = "32_35_31_34"
+
+func _on_bet_32_35_31_34_mouse_exited():
+	mouse_exited()
+
+func _on_bet_27_26_mouse_entered():
+	can_bet = true
+	roulette_number = "27 and 26"
+
+func _on_bet_27_26_mouse_exited():
+	mouse_exited()
+
+func _on_bet_30_29_mouse_entered():
+	can_bet = true
+	roulette_number = "30 and 29"
+
+func _on_bet_30_29_mouse_exited():
+	mouse_exited()
+
+func _on_bet_33_32_mouse_entered():
+	can_bet = true
+	roulette_number = "33 and 32"
+
+func _on_bet_33_32_mouse_exited():
+	mouse_exited()
+	
+func _on_bet_36_35_mouse_entered():
+	can_bet = true
+	roulette_number = "36 and 35"
+
+func _on_bet_36_35_mouse_exited():
+	mouse_exited()
+	
+func _on_bet_3_2_mouse_entered():
+	can_bet = true
+	roulette_number = "3 and 2"
+
+func _on_bet_3_2_mouse_exited():
+	mouse_exited()
+
+func _on_bet_5_4_mouse_entered():
+	can_bet = true
+	roulette_number = "5 and 4"
+
+func _on_bet_5_4_mouse_exited():
+	mouse_exited()
+	
+func _on_bet_2_1_mouse_entered():
+	can_bet = true
+	roulette_number = "2 and 1"
+
+func _on_bet_2_1_mouse_exited():
+	mouse_exited()
+
+func _on_bet_8_7_mouse_entered():
+	can_bet = true
+	roulette_number = "8 and 7"
+
+func _on_bet_8_7_mouse_exited():
+	mouse_exited()
+
+func _on_bet_11_10_mouse_entered():
+	can_bet = true
+	roulette_number = "11 and 10"
+	
+func _on_bet_11_10_mouse_exited():
+	mouse_exited()
+
+func _on_bet_14_13_mouse_entered():
+	can_bet = true
+	roulette_number = "14 and 13"
+
+func _on_bet_14_13_mouse_exited():
+	mouse_exited()
+
+func _on_bet_20_19_mouse_entered():
+	can_bet = true
+	roulette_number = "20 and 19"
+
+func _on_bet_20_19_mouse_exited():
+	mouse_exited()
+
+func _on_bet_17_16_mouse_entered():
+	can_bet = true
+	roulette_number = "17 and 16"
+
+func _on_bet_17_16_mouse_exited():
+	mouse_exited()
+
+func _on_bet_23_22_mouse_entered():
+	can_bet = true
+	roulette_number = "23 and 22"
+
+func _on_bet_23_22_mouse_exited():
+	mouse_exited()
+
+func _on_bet_26_25_mouse_entered():
+	can_bet = true
+	roulette_number = "26 and 25"
+
+func _on_bet_26_25_mouse_exited():
+	mouse_exited()
+
+func _on_bet_29_28_mouse_entered():
+	can_bet = true
+	roulette_number = "29 and 28"
+
+func _on_bet_29_28_mouse_exited():
+	mouse_exited()
+
+func _on_bet_32_31_mouse_entered():
+	can_bet = true
+	roulette_number = "32 and 31"
+
+func _on_bet_32_31_mouse_exited():
+	mouse_exited()
+	
+func _on_bet_35_34_mouse_entered():
+	can_bet = true
+	roulette_number = "35 and 34"
+
+func _on_bet_35_34_mouse_exited():
+	mouse_exited()
+
+func _on_bet_3_6_mouse_entered():
+	can_bet = true
+	roulette_number = "3 and 6"
+
+func _on_bet_3_6_mouse_exited():
+	mouse_exited()
+
+func _on_bet_6_9_mouse_entered():
+	can_bet = true
+	roulette_number = "6 and 9"
+
+func _on_bet_6_9_mouse_exited():
+	mouse_exited()
+
+func _on_bet_9_12_mouse_entered():
+	can_bet = true
+	roulette_number = "9 and 12"
+
+func _on_bet_9_12_mouse_exited():
+	mouse_exited()
+
+func _on_bet_12_15_mouse_entered():
+	can_bet = true
+	roulette_number = "12 and 15"
+
+func _on_bet_12_15_mouse_exited():
+	mouse_exited()
+
+func _on_bet_15_18_mouse_entered():
+	can_bet = true
+	roulette_number = "15 and 18"
+
+func _on_bet_15_18_mouse_exited():
+	mouse_exited()
+
+func _on_bet_18_21_mouse_entered():
+	can_bet = true
+	roulette_number = "18 and 21"
+
+func _on_bet_18_21_mouse_exited():
+	mouse_exited()
+
+func _on_bet_21_24_mouse_entered():
+	can_bet = true
+	roulette_number = "21 and 24"
+
+func _on_bet_21_24_mouse_exited():
+	mouse_exited()
+
+func _on_bet_24_27_mouse_entered():
+	can_bet = true
+	roulette_number = "24 and 27"
+
+func _on_bet_24_27_mouse_exited():
+	mouse_exited()
+
+func _on_bet_27_30_mouse_entered():
+	can_bet = true
+	roulette_number = "27 and 30"
+
+func _on_bet_27_30_mouse_exited():
+	mouse_exited()
+
+func _on_bet_30_33_mouse_entered():
+	can_bet = true
+	roulette_number = "30 and 33"
+
+func _on_bet_30_33_mouse_exited():
+	mouse_exited()
+
+func _on_bet_33_36_mouse_entered():
+	can_bet = true
+	roulette_number = "33 and 36"
+
+func _on_bet_33_36_mouse_exited():
+	mouse_exited()
+
+func _on_bet_2_5_mouse_entered():
+	can_bet = true
+	roulette_number = "2 and 5"
+
+func _on_bet_2_5_mouse_exited():
+	mouse_exited()
+
+func _on_bet_5_8_mouse_entered():
+	can_bet = true
+	roulette_number = "5 and 8"
+
+func _on_bet_5_8_mouse_exited():
+	mouse_exited()
+
+func _on_bet_8_11_mouse_entered():
+	can_bet = true
+	roulette_number = "8 and 11"
+
+func _on_bet_8_11_mouse_exited():
+	mouse_exited()
+
+func _on_bet_11_14_mouse_entered():
+	can_bet = true
+	roulette_number = "11 and 14"
+
+func _on_bet_11_14_mouse_exited():
+	mouse_exited()
+
+func _on_bet_14_17_mouse_entered():
+	can_bet = true
+	roulette_number = "14 and 17"
+
+func _on_bet_14_17_mouse_exited():
+	mouse_exited()
+
+func _on_bet_17_20_mouse_entered():
+	can_bet = true
+	roulette_number = "17 and 20"
+
+func _on_bet_17_20_mouse_exited():
+	mouse_exited()
+
+func _on_bet_23_26_mouse_entered():
+	can_bet = true
+	roulette_number = "23 and 26"
+
+func _on_bet_23_26_mouse_exited():
+	mouse_exited()
+
+func _on_bet_26_29_mouse_entered():
+	can_bet = true
+	roulette_number = "26 and 29"
+
+func _on_bet_26_29_mouse_exited():
+	mouse_exited()
+
+func _on_bet_29_32_mouse_entered():
+	can_bet = true
+	roulette_number = "29 and 32"
+
+func _on_bet_29_32_mouse_exited():
+	mouse_exited()
+
+func _on_bet_32_35_mouse_entered():
+	can_bet = true
+	roulette_number = "32 and 35"
+
+func _on_bet_32_35_mouse_exited():
+	mouse_exited()
+
+func _on_bet_1_4_mouse_entered():
+	can_bet = true
+	roulette_number = "1 and 4"
+
+func _on_bet_1_4_mouse_exited():
+	mouse_exited()
+	
+func _on_bet_4_7_mouse_entered():
+	can_bet = true
+	roulette_number = "4 and 7"
+
+func _on_bet_4_7_mouse_exited():
+	mouse_exited()
+
+func _on_bet_7_10_mouse_entered():
+	can_bet = true
+	roulette_number = "7 and 10"
+
+func _on_bet_7_10_mouse_exited():
+	mouse_exited()
+
+func _on_bet_10_13_mouse_entered():
+	can_bet = true
+	roulette_number = "10 and 13"
+
+func _on_bet_10_13_mouse_exited():
+	mouse_exited()
+
+func _on_bet_13_16_mouse_entered():
+	can_bet = true
+	roulette_number = "13 and 16"
+
+func _on_bet_13_16_mouse_exited():
+	mouse_exited()
+
+func _on_bet_16_19_mouse_entered():
+	can_bet = true
+	roulette_number = "16 and 19"
+
+func _on_bet_16_19_mouse_exited():
+	mouse_exited()
+
+func _on_bet_19_22_mouse_entered():
+	can_bet = true
+	roulette_number = "19 and 22"
+
+func _on_bet_19_22_mouse_exited():
+	mouse_exited()
+
+func _on_bet_22_25_mouse_entered():
+	can_bet = true
+	roulette_number = "22 and 25"
+
+func _on_bet_22_25_mouse_exited():
+	mouse_exited()
+
+func _on_bet_25_28_mouse_entered():
+	can_bet = true
+	roulette_number = "25 and 28"
+
+func _on_bet_25_28_mouse_exited():
+	mouse_exited()
+
+func _on_bet_28_31_mouse_entered():
+	can_bet = true
+	roulette_number = "28 and 31"
+
+func _on_bet_28_31_mouse_exited():
+	mouse_exited()
+
+func _on_bet_31_34_mouse_entered():
+	can_bet = true
+	roulette_number = "31 and 34"
+
+func _on_bet_31_34_mouse_exited():
+	mouse_exited()
+	
+func _on_bet_1_mouse_entered():
+	can_bet = true
+	roulette_number = "1"
+
+func _on_bet_1_mouse_exited():
+	mouse_exited()
+
+func _on_bet_2_mouse_entered():
+	can_bet = true
+	roulette_number = "2"
+
+func _on_bet_2_mouse_exited():
+	mouse_exited()
+
+func _on_bet_3_mouse_entered():
+	can_bet = true
+	roulette_number = "3"
+
+func _on_bet_3_mouse_exited():
+	mouse_exited()
+
+func _on_bet_4_mouse_entered():
+	can_bet = true
+	roulette_number = "4"
+
+func _on_bet_4_mouse_exited():
+	mouse_exited()
+
+func _on_bet_5_mouse_entered():
+	can_bet = true
+	roulette_number = "5"
+
+func _on_bet_5_mouse_exited():
+	mouse_exited()
+
+func _on_bet_6_mouse_entered():
+	can_bet = true
+	roulette_number = "6"
+
+func _on_bet_6_mouse_exited():
+	mouse_exited()
+
+func _on_bet_7_mouse_entered():
+	can_bet = true
+	roulette_number = "7"
+
+func _on_bet_7_mouse_exited():
+	mouse_exited()
+
+func _on_bet_8_mouse_entered():
+	can_bet = true
+	roulette_number = "8"
+
+func _on_bet_8_mouse_exited():
+	mouse_exited()
+
+func _on_bet_9_mouse_entered():
+	can_bet = true
+	roulette_number = "9"
+
+func _on_bet_9_mouse_exited():
+	mouse_exited()
+
+func _on_bet_10_mouse_entered():
+	can_bet = true
+	roulette_number = "10"
+
+func _on_bet_10_mouse_exited():
+	mouse_exited()
+
+func _on_bet_11_mouse_entered():
+	can_bet = true
+	roulette_number = "11"
+
+func _on_bet_11_mouse_exited():
+	mouse_exited()
+
+func _on_bet_12_mouse_entered():
+	can_bet = true
+	roulette_number = "12"
+
+func _on_bet_12_mouse_exited():
+	mouse_exited()
+
+func _on_bet_13_mouse_entered():
+	can_bet = true
+	roulette_number = "13"
+
+func _on_bet_13_mouse_exited():
+	mouse_exited()
+
+func _on_bet_14_mouse_entered():
+	can_bet = true
+	roulette_number = "14"
+
+func _on_bet_14_mouse_exited():
+	mouse_exited()
+
+func _on_bet_15_mouse_entered():
+	can_bet = true
+	roulette_number = "15"
+
+func _on_bet_15_mouse_exited():
+	mouse_exited()
+
+func _on_bet_16_mouse_entered():
+	can_bet = true
+	roulette_number = "16"
+
+func _on_bet_16_mouse_exited():
+	mouse_exited()
+
+func _on_bet_17_mouse_entered():
+	can_bet = true
+	roulette_number = "17"
+
+func _on_bet_17_mouse_exited():
+	mouse_exited()
+
+func _on_bet_18_mouse_entered():
+	can_bet = true
+	roulette_number = "18"
+
+func _on_bet_18_mouse_exited():
+	mouse_exited()
+
+func _on_bet_19_mouse_entered():
+	can_bet = true
+	roulette_number = "19"
+
+func _on_bet_19_mouse_exited():
+	mouse_exited()
+
+func _on_bet_21_mouse_entered():
+	can_bet = true
+	roulette_number = "21"
+
+func _on_bet_21_mouse_exited():
+	mouse_exited()
+
+func _on_bet_22_mouse_entered():
+	can_bet = true
+	roulette_number = "22"
+
+func _on_bet_22_mouse_exited():
+	mouse_exited()
+
+func _on_bet_23_mouse_entered():
+	can_bet = true
+	roulette_number = "23"
+
+func _on_bet_23_mouse_exited():
+	mouse_exited()
+
+func _on_bet_24_mouse_entered():
+	can_bet = true
+	roulette_number = "24"
+
+func _on_bet_24_mouse_exited():
+	mouse_exited()
+
+func _on_bet_25_mouse_entered():
+	can_bet = true
+	roulette_number = "25"
+
+func _on_bet_25_mouse_exited():
+	mouse_exited()
+
+func _on_bet_26_mouse_entered():
+	can_bet = true
+	roulette_number = "26"
+
+func _on_bet_26_mouse_exited():
+	mouse_exited()
+
+func _on_bet_27_mouse_entered():
+	can_bet = true
+	roulette_number = "27"
+
+func _on_bet_27_mouse_exited():
+	mouse_exited()
+
+func _on_bet_28_mouse_entered():
+	can_bet = true
+	roulette_number = "28"
+
+func _on_bet_28_mouse_exited():
+	mouse_exited()
+
+func _on_bet_29_mouse_entered():
+	can_bet = true
+	roulette_number = "29"
+
+func _on_bet_29_mouse_exited():
+	mouse_exited()
+
+func _on_bet_30_mouse_entered():
+	can_bet = true
+	roulette_number = "30"
+
+func _on_bet_30_mouse_exited():
+	mouse_exited()
+
+func _on_bet_31_mouse_entered():
+	can_bet = true
+	roulette_number = "31"
+
+func _on_bet_31_mouse_exited():
+	mouse_exited()
+
+func _on_bet_32_mouse_entered():
+	can_bet = true
+	roulette_number = "32"
+
+func _on_bet_32_mouse_exited():
+	mouse_exited()
+
+func _on_bet_33_mouse_entered():
+	can_bet = true
+	roulette_number = "33"
+
+func _on_bet_33_mouse_exited():
+	mouse_exited()
+
+func _on_bet_34_mouse_entered():
+	can_bet = true
+	roulette_number = "34"
+
+func _on_bet_34_mouse_exited():
+	mouse_exited()
+
+func _on_bet_35_mouse_entered():
+	can_bet = true
+	roulette_number = "35"
+
+func _on_bet_35_mouse_exited():
+	mouse_exited()
+
+func _on_bet_36_mouse_entered():
+	can_bet = true
+	roulette_number = "36"
+
+func _on_bet_36_mouse_exited():
+	mouse_exited()
+
+func _on_white_chip_mouse_entered():
+	white_chip = true
+
+func _on_white_chip_mouse_exited():
+	white_chip = false
+
+func _on_red_chip_mouse_entered():
+	red_chip = true
+
+func _on_red_chip_mouse_exited():
+	red_chip = false
+
+func _on_green_chip_mouse_entered():
+	green_chip = true
+
+func _on_green_chip_mouse_exited():
+	green_chip = false
+
+func _on_purple_chip_mouse_entered():
+	purple_chip = true
+
+func _on_purple_chip_mouse_exited():
+	purple_chip = false
+
+func _on_gold_chip_mouse_entered():
+	gold_chip = true
+
+func _on_gold_chip_mouse_exited():
+	gold_chip = false
+
+func _on_sky_blue_chip_mouse_entered():
+	sky_blue_chip = true
+
+func _on_sky_blue_chip_mouse_exited():
+	sky_blue_chip = false
+
+func _on_yellow_chip_mouse_entered():
+	yellow_chip = true
+
+func _on_yellow_chip_mouse_exited():
+	yellow_chip = false

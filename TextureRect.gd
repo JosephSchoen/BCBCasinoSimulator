@@ -1,17 +1,5 @@
 extends TextureRect
 
-var selected = false
-
-@onready var chip = $"." as TextureRect
-
-var chip_count = 0
-@onready var chip_sprite = preload("res://Roulette/Assets/correctscuffedchip.png")
-
-
-func _ready():
-	pass
-
-
 # Triggers when you click and drag
 func _get_drag_data(at_position):
 	var preview_texture = TextureRect.new()

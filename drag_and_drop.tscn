@@ -11,12 +11,10 @@ expand_mode = 1
 script = ExtResource("1_vv5vl")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 show_behind_parent = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
 offset_right = 29.0
 offset_bottom = 29.0
 mouse_filter = 2
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]

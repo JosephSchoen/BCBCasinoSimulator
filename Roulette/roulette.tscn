@@ -1,11 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://x2ea6qh76rt5"]
+[gd_scene load_steps=20 format=3 uid="uid://x2ea6qh76rt5"]
 
 [ext_resource type="Script" path="res://Roulette/roulette.gd" id="1_jclcb"]
 [ext_resource type="PackedScene" uid="uid://qo1c7alxl6x8" path="res://drag_and_drop.tscn" id="3_nwqvl"]
-[ext_resource type="Texture2D" uid="uid://bvycitlcccmdc" path="res://Roulette/Assets/correctscuffedchip.png" id="3_xtdgg"]
 [ext_resource type="Texture2D" uid="uid://h4ep1wpurfs2" path="res://Roulette/Assets/roulette-finish-blowup.png" id="4_84dsl"]
 [ext_resource type="Script" path="res://drag_and_drop_slots.gd" id="5_k86mo"]
+[ext_resource type="Texture2D" uid="uid://da36hpmkwrrdj" path="res://Roulette/Assets/white_chip.png" id="6_mhsax"]
 [ext_resource type="Script" path="res://Roulette/Camera2D.gd" id="6_s4jry"]
+[ext_resource type="Script" path="res://Roulette/TextureRect.gd" id="7_mu13w"]
+[ext_resource type="Texture2D" uid="uid://c5n7me4jnp6cy" path="res://Roulette/Assets/red_chip.png" id="8_868n3"]
+[ext_resource type="Texture2D" uid="uid://bwxpeow4s3duk" path="res://Roulette/Assets/green_chip.png" id="9_72vap"]
+[ext_resource type="Texture2D" uid="uid://skn6yp84xe7n" path="res://Roulette/Assets/blue_chip.png" id="10_v0jjm"]
+[ext_resource type="Texture2D" uid="uid://dx2siihnkcpd3" path="res://Roulette/Assets/black_chip.png" id="11_v27et"]
+[ext_resource type="Texture2D" uid="uid://b14rts4383sf3" path="res://Roulette/Assets/purple_chip.png" id="12_2re5a"]
+[ext_resource type="Texture2D" uid="uid://oo6bqry0dejn" path="res://Roulette/Assets/gold_chip.png" id="13_8hw3p"]
+[ext_resource type="Texture2D" uid="uid://dknvbkqfqqa8y" path="res://Roulette/Assets/sky_blue_chip.png" id="14_pgfh0"]
+[ext_resource type="Texture2D" uid="uid://655cvibqrs8w" path="res://Roulette/Assets/yellow_chip.png" id="15_xxwb4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1b68"]
 size = Vector2(30.5, 30)
@@ -26,6 +35,139 @@ script = ExtResource("1_jclcb")
 
 [node name="SingleBets" type="Node" parent="BettingNodes"]
 
+[node name="Bet_1" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(-80, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_1"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_2" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(-80, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_2"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_3" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(-80, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_3"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_4" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_4"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_5" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(0, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_5"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_6" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(0, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_6"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_7" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(80, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_7"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_8" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(80, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_8"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_9" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(80, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_9"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_10" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(160, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_10"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_11" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(160, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_11"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_12" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(160, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_12"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_13" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(240, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_13"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_14" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(240, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_14"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_15" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(240, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_15"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_16" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(320, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_16"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_17" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(320, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_17"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_18" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(320, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_18"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_19" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(400, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_19"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
 [node name="Bet_20" type="Area2D" parent="BettingNodes/SingleBets"]
 position = Vector2(440, -81)
 
@@ -33,23 +175,352 @@ position = Vector2(440, -81)
 position = Vector2(173, 319)
 shape = SubResource("RectangleShape2D_k1b68")
 
+[node name="Bet_21" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(400, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_21"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_22" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(480, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_22"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_23" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(480, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_23"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_24" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(480, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_24"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_25" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(560, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_25"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_26" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(560, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_26"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_27" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(560, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_27"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_28" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(640, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_28"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_29" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(640, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_29"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_30" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(640, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_30"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_31" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(720, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_31"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_32" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(720, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_32"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_33" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(720, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_33"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_34" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(800, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_34"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_35" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(800, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_35"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_36" type="Area2D" parent="BettingNodes/SingleBets"]
+position = Vector2(800, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/SingleBets/Bet_36"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
 [node name="VerticalDoubleBets" type="Node" parent="BettingNodes"]
 
-[node name="Bet_6_5" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
-position = Vector2(40, -120)
+[node name="Bet_3_6" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(0, -161)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_6_5"]
-position = Vector2(173, 318.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_3_6"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_6_9" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(80, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_6_9"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_9_12" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(160, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_9_12"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_12_15" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(240, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_12_15"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_15_18" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(320, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_15_18"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_18_21" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(400, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_18_21"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_21_24" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(480, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_21_24"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_24_27" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(560, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_24_27"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_27_30" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(640, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_27_30"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_30_33" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(720, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_30_33"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_33_36" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(800, -161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_33_36"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_20_23" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(480, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_20_23"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_2_5" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(0, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_2_5"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_5_8" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(80, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_5_8"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_8_11" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(160, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_8_11"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_11_14" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(240, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_11_14"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_14_17" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(320, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_14_17"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_17_20" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(400, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_17_20"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_23_26" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(560, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_23_26"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_26_29" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(640, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_26_29"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_29_32" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(720, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_29_32"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_32_35" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(800, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_32_35"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_1_4" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_1_4"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_4_7" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(80, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_4_7"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_7_10" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(160, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_7_10"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_10_13" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(240, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_10_13"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_13_16" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(320, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_13_16"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_16_19" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(400, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_16_19"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_19_22" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(480, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_19_22"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_22_25" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(560, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_22_25"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_25_28" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(640, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_25_28"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_28_31" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(720, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_28_31"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_31_34" type="Area2D" parent="BettingNodes/VerticalDoubleBets"]
+position = Vector2(800, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/VerticalDoubleBets/Bet_31_34"]
+position = Vector2(173, 319)
 shape = SubResource("RectangleShape2D_k1b68")
 
 [node name="HorizontalDoubleBets" type="Node" parent="BettingNodes"]
-
-[node name="Bet_20_23" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
-position = Vector2(480, -81)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_20_23"]
-position = Vector2(173, 319)
-shape = SubResource("RectangleShape2D_k1b68")
 
 [node name="Bet_21_20" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
 position = Vector2(440, -120)
@@ -93,11 +564,130 @@ position = Vector2(520, -121)
 position = Vector2(173, 319)
 shape = SubResource("RectangleShape2D_k1b68")
 
-[node name="Bet3and2" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+[node name="Bet_27_26" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(600, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_27_26"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_30_29" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(640, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_30_29"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_33_32" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(720, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_33_32"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_36_35" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(800, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_36_35"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_3_2" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
 position = Vector2(0, -120)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet3and2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_3_2"]
 position = Vector2(133, 318)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_5_4" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(40, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_5_4"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_6_5" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(40, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_6_5"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_2_1" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(-40, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_2_1"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_8_7" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(120, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_8_7"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_11_10" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(200, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_11_10"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_14_13" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(280, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_14_13"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_20_19" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(440, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_20_19"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_17_16" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(360, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_17_16"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_23_22" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(520, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_23_22"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_26_25" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(600, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_26_25"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_29_28" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(680, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_29_28"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_32_31" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(760, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_32_31"]
+position = Vector2(173, 318.5)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_35_34" type="Area2D" parent="BettingNodes/HorizontalDoubleBets"]
+position = Vector2(840, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/HorizontalDoubleBets/Bet_35_34"]
+position = Vector2(173, 318.5)
 shape = SubResource("RectangleShape2D_k1b68")
 
 [node name="QuadBets" type="Node" parent="BettingNodes"]
@@ -151,6 +741,111 @@ position = Vector2(0, -120)
 position = Vector2(173, 318)
 shape = SubResource("RectangleShape2D_k1b68")
 
+[node name="Bet_24_27_23_26" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(560, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_24_27_23_26"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_30_33_29_32" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(680, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_30_33_29_32"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_27_30_26_29" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(600, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_27_30_26_29"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_33_36_32_35" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(760, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_33_36_32_35"]
+position = Vector2(213, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_2_5_1_4" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_2_5_1_4"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_5_8_4_7" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(80, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_5_8_4_7"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_8_11_7_10" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(160, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_8_11_7_10"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_11_14_10_13" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(240, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_11_14_10_13"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_14_17_13_16" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(320, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_14_17_13_16"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_17_20_16_19" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(400, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_17_20_16_19"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_20_23_19_22" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(480, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_20_23_19_22"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_23_26_22_25" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(560, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_23_26_22_25"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_26_29_25_28" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(640, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_26_29_25_28"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_29_32_28_31" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(720, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_29_32_28_31"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
+[node name="Bet_32_35_31_34" type="Area2D" parent="BettingNodes/QuadBets"]
+position = Vector2(800, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/QuadBets/Bet_32_35_31_34"]
+position = Vector2(173, 319)
+shape = SubResource("RectangleShape2D_k1b68")
+
 [node name="Red" type="Area2D" parent="BettingNodes"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BettingNodes/Red"]
@@ -163,23 +858,6 @@ offset_top = 463.0
 offset_right = 508.0
 offset_bottom = 493.0
 script = ExtResource("5_k86mo")
-
-[node name="BlueChip" parent="." instance=ExtResource("3_nwqvl")]
-top_level = true
-offset_left = 136.0
-offset_top = 566.0
-offset_right = 166.0
-offset_bottom = 596.0
-mouse_default_cursor_shape = 2
-texture = ExtResource("3_xtdgg")
-
-[node name="BlackChip" parent="." instance=ExtResource("3_nwqvl")]
-top_level = true
-offset_left = 214.0
-offset_top = 569.0
-offset_right = 244.0
-offset_bottom = 599.0
-texture = ExtResource("3_xtdgg")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 709.0
@@ -757,7 +1435,7 @@ layout_mode = 2
 script = ExtResource("5_k86mo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577, 320)
+position = Vector2(577, 324)
 script = ExtResource("6_s4jry")
 
 [node name="Button" type="Button" parent="."]
@@ -770,10 +1448,10 @@ text = "Place Bet"
 [node name="WheelTimer" type="Timer" parent="."]
 
 [node name="NumberLabel" type="Label" parent="."]
-offset_left = 24.0
-offset_top = -471.0
-offset_right = 540.0
-offset_bottom = -381.0
+offset_left = 12.0
+offset_top = -475.0
+offset_right = 528.0
+offset_bottom = -385.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -789,12 +1467,205 @@ offset_bottom = -178.0
 theme_override_font_sizes/font_size = 32
 text = "Back to Betting"
 
+[node name="BettingChips" type="Node2D" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 108.0
+offset_top = 523.0
+offset_right = 930.0
+offset_bottom = 647.0
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 36
+columns = 9
+
+[node name="WhiteChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("6_mhsax")
+script = ExtResource("7_mu13w")
+
+[node name="RedChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("8_868n3")
+script = ExtResource("7_mu13w")
+
+[node name="GreenChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("9_72vap")
+script = ExtResource("7_mu13w")
+
+[node name="BlueChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("10_v0jjm")
+script = ExtResource("7_mu13w")
+
+[node name="BlackChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("11_v27et")
+script = ExtResource("7_mu13w")
+
+[node name="PurpleChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("12_2re5a")
+script = ExtResource("7_mu13w")
+
+[node name="GoldChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("13_8hw3p")
+script = ExtResource("7_mu13w")
+
+[node name="SkyBlueChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("14_pgfh0")
+script = ExtResource("7_mu13w")
+
+[node name="YellowChip" parent="MarginContainer/GridContainer" instance=ExtResource("3_nwqvl")]
+layout_mode = 2
+texture = ExtResource("15_xxwb4")
+script = ExtResource("7_mu13w")
+
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_1" to="." method="_on_bet_1_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_1" to="." method="_on_bet_1_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_2" to="." method="_on_bet_2_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_2" to="." method="_on_bet_2_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_3" to="." method="_on_bet_3_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_3" to="." method="_on_bet_3_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_4" to="." method="_on_bet_4_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_4" to="." method="_on_bet_4_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_5" to="." method="_on_bet_5_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_5" to="." method="_on_bet_5_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_6" to="." method="_on_bet_6_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_6" to="." method="_on_bet_6_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_7" to="." method="_on_bet_7_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_7" to="." method="_on_bet_7_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_8" to="." method="_on_bet_8_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_8" to="." method="_on_bet_8_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_9" to="." method="_on_bet_9_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_9" to="." method="_on_bet_9_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_10" to="." method="_on_bet_10_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_10" to="." method="_on_bet_10_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_11" to="." method="_on_bet_11_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_11" to="." method="_on_bet_11_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_12" to="." method="_on_bet_12_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_12" to="." method="_on_bet_12_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_13" to="." method="_on_bet_13_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_13" to="." method="_on_bet_13_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_14" to="." method="_on_bet_14_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_14" to="." method="_on_bet_14_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_15" to="." method="_on_bet_15_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_15" to="." method="_on_bet_15_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_16" to="." method="_on_bet_16_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_16" to="." method="_on_bet_16_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_17" to="." method="_on_bet_17_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_17" to="." method="_on_bet_17_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_18" to="." method="_on_bet_18_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_18" to="." method="_on_bet_18_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_19" to="." method="_on_bet_19_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_19" to="." method="_on_bet_19_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_20" to="." method="_on_bet_20_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_20" to="." method="_on_bet_20_mouse_exited"]
-[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_6_5" to="." method="_on_bet_6_5_mouse_entered"]
-[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_6_5" to="." method="_on_bet_6_5_mouse_exited"]
-[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_20_23" to="." method="_on_bet_20_23_mouse_entered"]
-[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_20_23" to="." method="_on_bet_20_23_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_21" to="." method="_on_bet_21_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_21" to="." method="_on_bet_21_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_22" to="." method="_on_bet_22_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_22" to="." method="_on_bet_22_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_23" to="." method="_on_bet_23_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_23" to="." method="_on_bet_23_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_24" to="." method="_on_bet_24_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_24" to="." method="_on_bet_24_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_25" to="." method="_on_bet_25_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_25" to="." method="_on_bet_25_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_26" to="." method="_on_bet_26_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_26" to="." method="_on_bet_26_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_27" to="." method="_on_bet_27_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_27" to="." method="_on_bet_27_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_28" to="." method="_on_bet_28_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_28" to="." method="_on_bet_28_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_29" to="." method="_on_bet_29_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_29" to="." method="_on_bet_29_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_30" to="." method="_on_bet_30_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_30" to="." method="_on_bet_30_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_31" to="." method="_on_bet_31_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_31" to="." method="_on_bet_31_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_32" to="." method="_on_bet_32_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_32" to="." method="_on_bet_32_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_33" to="." method="_on_bet_33_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_33" to="." method="_on_bet_33_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_34" to="." method="_on_bet_34_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_34" to="." method="_on_bet_34_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_35" to="." method="_on_bet_35_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_35" to="." method="_on_bet_35_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_36" to="." method="_on_bet_36_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_36" to="." method="_on_bet_36_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_3_6" to="." method="_on_bet_3_6_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_3_6" to="." method="_on_bet_3_6_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_6_9" to="." method="_on_bet_6_9_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_6_9" to="." method="_on_bet_6_9_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_9_12" to="." method="_on_bet_9_12_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_9_12" to="." method="_on_bet_9_12_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_12_15" to="." method="_on_bet_12_15_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_12_15" to="." method="_on_bet_12_15_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_15_18" to="." method="_on_bet_15_18_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_15_18" to="." method="_on_bet_15_18_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_18_21" to="." method="_on_bet_18_21_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_18_21" to="." method="_on_bet_18_21_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_21_24" to="." method="_on_bet_21_24_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_21_24" to="." method="_on_bet_21_24_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_24_27" to="." method="_on_bet_24_27_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_24_27" to="." method="_on_bet_24_27_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_27_30" to="." method="_on_bet_27_30_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_27_30" to="." method="_on_bet_27_30_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_30_33" to="." method="_on_bet_30_33_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_30_33" to="." method="_on_bet_30_33_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_33_36" to="." method="_on_bet_33_36_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_33_36" to="." method="_on_bet_33_36_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_20_23" to="." method="_on_bet_20_23_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_20_23" to="." method="_on_bet_20_23_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_2_5" to="." method="_on_bet_2_5_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_2_5" to="." method="_on_bet_2_5_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_5_8" to="." method="_on_bet_5_8_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_5_8" to="." method="_on_bet_5_8_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_8_11" to="." method="_on_bet_8_11_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_8_11" to="." method="_on_bet_8_11_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_11_14" to="." method="_on_bet_11_14_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_11_14" to="." method="_on_bet_11_14_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_14_17" to="." method="_on_bet_14_17_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_14_17" to="." method="_on_bet_14_17_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_17_20" to="." method="_on_bet_17_20_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_17_20" to="." method="_on_bet_17_20_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_23_26" to="." method="_on_bet_23_26_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_23_26" to="." method="_on_bet_23_26_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_26_29" to="." method="_on_bet_26_29_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_26_29" to="." method="_on_bet_26_29_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_29_32" to="." method="_on_bet_29_32_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_29_32" to="." method="_on_bet_29_32_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_32_35" to="." method="_on_bet_32_35_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_32_35" to="." method="_on_bet_32_35_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_1_4" to="." method="_on_bet_1_4_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_1_4" to="." method="_on_bet_1_4_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_4_7" to="." method="_on_bet_4_7_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_4_7" to="." method="_on_bet_4_7_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_7_10" to="." method="_on_bet_7_10_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_7_10" to="." method="_on_bet_7_10_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_10_13" to="." method="_on_bet_10_13_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_10_13" to="." method="_on_bet_10_13_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_13_16" to="." method="_on_bet_13_16_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_13_16" to="." method="_on_bet_13_16_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_16_19" to="." method="_on_bet_16_19_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_16_19" to="." method="_on_bet_16_19_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_19_22" to="." method="_on_bet_19_22_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_19_22" to="." method="_on_bet_19_22_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_22_25" to="." method="_on_bet_22_25_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_22_25" to="." method="_on_bet_22_25_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_25_28" to="." method="_on_bet_25_28_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_25_28" to="." method="_on_bet_25_28_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_28_31" to="." method="_on_bet_28_31_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_28_31" to="." method="_on_bet_28_31_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/VerticalDoubleBets/Bet_31_34" to="." method="_on_bet_31_34_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/VerticalDoubleBets/Bet_31_34" to="." method="_on_bet_31_34_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_21_20" to="." method="_on_bet_21_20_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_21_20" to="." method="_on_bet_21_20_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_18_17" to="." method="_on_bet_18_17_mouse_entered"]
@@ -807,8 +1678,42 @@ text = "Back to Betting"
 [connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_9_8" to="." method="_on_bet_9_8_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_24_23" to="." method="_on_bet_24_23_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_24_23" to="." method="_on_bet_24_23_mouse_exited"]
-[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet3and2" to="." method="_on_bet_3_and_2_mouse_entered"]
-[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet3and2" to="." method="_on_bet_3_and_2_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_27_26" to="." method="_on_bet_27_26_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_27_26" to="." method="_on_bet_27_26_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_30_29" to="." method="_on_bet_30_29_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_30_29" to="." method="_on_bet_30_29_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_33_32" to="." method="_on_bet_33_32_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_33_32" to="." method="_on_bet_33_32_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_36_35" to="." method="_on_bet_36_35_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_36_35" to="." method="_on_bet_36_35_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_3_2" to="." method="_on_bet_3_2_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_3_2" to="." method="_on_bet_3_2_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_5_4" to="." method="_on_bet_5_4_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_5_4" to="." method="_on_bet_5_4_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_6_5" to="." method="_on_bet_6_5_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_6_5" to="." method="_on_bet_6_5_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_2_1" to="." method="_on_bet_2_1_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_2_1" to="." method="_on_bet_2_1_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_8_7" to="." method="_on_bet_8_7_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_8_7" to="." method="_on_bet_8_7_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_11_10" to="." method="_on_bet_11_10_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_11_10" to="." method="_on_bet_11_10_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_14_13" to="." method="_on_bet_14_13_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_14_13" to="." method="_on_bet_14_13_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_20_19" to="." method="_on_bet_20_19_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_20_19" to="." method="_on_bet_20_19_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_17_16" to="." method="_on_bet_17_16_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_17_16" to="." method="_on_bet_17_16_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_23_22" to="." method="_on_bet_23_22_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_23_22" to="." method="_on_bet_23_22_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_26_25" to="." method="_on_bet_26_25_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_26_25" to="." method="_on_bet_26_25_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_29_28" to="." method="_on_bet_29_28_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_29_28" to="." method="_on_bet_29_28_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_32_31" to="." method="_on_bet_32_31_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_32_31" to="." method="_on_bet_32_31_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/HorizontalDoubleBets/Bet_35_34" to="." method="_on_bet_35_34_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/HorizontalDoubleBets/Bet_35_34" to="." method="_on_bet_35_34_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_12_15_11_14" to="." method="_on_bet_12_15_11_14_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_12_15_11_14" to="." method="_on_bet_12_15_11_14_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_15_18_14_17" to="." method="_on_bet_15_18_14_17_mouse_entered"]
@@ -823,14 +1728,40 @@ text = "Back to Betting"
 [connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_6_9_5_8" to="." method="_on_bet_6_9_5_8_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_3_6_2_5" to="." method="_on_bet_3_6_2_5_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_3_6_2_5" to="." method="_on_bet_3_6_2_5_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_24_27_23_26" to="." method="_on_bet_24_27_23_26_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_24_27_23_26" to="." method="_on_bet_24_27_23_26_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_30_33_29_32" to="." method="_on_bet_30_33_29_32_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_30_33_29_32" to="." method="_on_bet_30_33_29_32_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_27_30_26_29" to="." method="_on_bet_27_30_26_29_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_27_30_26_29" to="." method="_on_bet_27_30_26_29_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_33_36_32_35" to="." method="_on_bet_33_36_32_35_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_33_36_32_35" to="." method="_on_bet_33_36_32_35_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_2_5_1_4" to="." method="_on_bet_2_5_1_4_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_2_5_1_4" to="." method="_on_bet_2_5_1_4_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_5_8_4_7" to="." method="_on_bet_5_8_4_7_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_5_8_4_7" to="." method="_on_bet_5_8_4_7_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_8_11_7_10" to="." method="_on_bet_8_11_7_10_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_8_11_7_10" to="." method="_on_bet_8_11_7_10_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_11_14_10_13" to="." method="_on_bet_11_14_10_13_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_11_14_10_13" to="." method="_on_bet_11_14_10_13_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_14_17_13_16" to="." method="_on_bet_14_17_13_16_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_14_17_13_16" to="." method="_on_bet_14_17_13_16_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_17_20_16_19" to="." method="_on_bet_17_20_16_19_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_17_20_16_19" to="." method="_on_bet_17_20_16_19_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_20_23_19_22" to="." method="_on_bet_20_23_19_22_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_20_23_19_22" to="." method="_on_bet_20_23_19_22_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_23_26_22_25" to="." method="_on_bet_23_26_22_25_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_23_26_22_25" to="." method="_on_bet_23_26_22_25_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_26_29_25_28" to="." method="_on_bet_26_29_25_28_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_26_29_25_28" to="." method="_on_bet_26_29_25_28_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_29_32_28_31" to="." method="_on_bet_29_32_28_31_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_29_32_28_31" to="." method="_on_bet_29_32_28_31_mouse_exited"]
+[connection signal="mouse_entered" from="BettingNodes/QuadBets/Bet_32_35_31_34" to="." method="_on_bet_32_35_31_34_mouse_entered"]
+[connection signal="mouse_exited" from="BettingNodes/QuadBets/Bet_32_35_31_34" to="." method="_on_bet_32_35_31_34_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/Red" to="." method="_on_red_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/Red" to="." method="_on_red_mouse_exited"]
 [connection signal="mouse_entered" from="BettingNodes/Red/RouletteSlot37" to="." method="_on_texture_rect_2_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/Red/RouletteSlot37" to="." method="_on_texture_rect_2_mouse_exited"]
-[connection signal="mouse_entered" from="BlueChip" to="." method="_on_blue_chip_mouse_entered"]
-[connection signal="mouse_exited" from="BlueChip" to="." method="_on_blue_chip_mouse_exited"]
-[connection signal="mouse_entered" from="BlackChip" to="." method="_on_black_chip_mouse_entered"]
-[connection signal="mouse_exited" from="BlackChip" to="." method="_on_black_chip_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="MarginContainerSingles/GridContainerSingles/RouletteSlot" to="." method="_on_roulette_slot_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainerSingles/GridContainerSingles/RouletteSlot" to="." method="_on_texture_rect_2_mouse_exited"]
@@ -1065,3 +1996,21 @@ text = "Back to Betting"
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="WheelTimer" to="." method="_on_wheel_timer_timeout"]
 [connection signal="button_down" from="BackToBoard" to="." method="_on_back_to_board_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/WhiteChip" to="." method="_on_white_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/WhiteChip" to="." method="_on_white_chip_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/RedChip" to="." method="_on_red_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/RedChip" to="." method="_on_red_chip_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/GreenChip" to="." method="_on_green_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/GreenChip" to="." method="_on_green_chip_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/BlueChip" to="." method="_on_blue_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/BlueChip" to="." method="_on_blue_chip_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/BlackChip" to="." method="_on_black_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/BlackChip" to="." method="_on_black_chip_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/PurpleChip" to="." method="_on_purple_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/PurpleChip" to="." method="_on_purple_chip_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/GoldChip" to="." method="_on_gold_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/GoldChip" to="." method="_on_gold_chip_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/SkyBlueChip" to="." method="_on_sky_blue_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/SkyBlueChip" to="." method="_on_sky_blue_chip_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/YellowChip" to="." method="_on_yellow_chip_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/GridContainer/YellowChip" to="." method="_on_yellow_chip_mouse_exited"]
