@@ -1,13 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7myatyesp53n"]
+[gd_scene load_steps=15 format=3 uid="uid://b7myatyesp53n"]
 
-[ext_resource type="Texture2D" uid="uid://c7sry65sh8qt2" path="res://Backgrounds/textbox.png" id="1_btotq"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_g7fni"]
+[ext_resource type="Texture2D" uid="uid://c3dqfuisy5jha" path="res://Backgrounds/background_red_blowup.png" id="2_p601e"]
 [ext_resource type="Texture2D" uid="uid://b1xs7w20iwl5v" path="res://Roulette/Assets/MainMenu/settings_button_blowup.png" id="3_8g4ap"]
 [ext_resource type="PackedScene" uid="uid://detmlnr7gd12c" path="res://Settings/settings_tab_container.tscn" id="3_wdvny"]
 [ext_resource type="Texture2D" uid="uid://d4mo44vdoq8wn" path="res://Roulette/Assets/MainMenu/exit_button_blowup.png" id="4_edspg"]
 [ext_resource type="Texture2D" uid="uid://lbq3oggr5awp" path="res://Roulette/Assets/MainMenu/menulogo_blowup.png" id="4_f45sc"]
 [ext_resource type="Texture2D" uid="uid://ttwsfxqy58n1" path="res://Roulette/Assets/MainMenu/play_button_blowup.png" id="5_l4mo6"]
+[ext_resource type="Texture2D" uid="uid://du5op12je14hu" path="res://Backgrounds/blackjack_button_blowup.png" id="6_qg5lk"]
+[ext_resource type="Texture2D" uid="uid://dnnmmt1eaehv4" path="res://Backgrounds/texasholdem_button_blowup.png" id="7_0s581"]
+[ext_resource type="Texture2D" uid="uid://bdlrm6rxc71t4" path="res://Backgrounds/roulette_button_blowup.png" id="8_htubb"]
 [ext_resource type="Texture2D" uid="uid://cqh8rvk7pn03y" path="res://Roulette/Assets/MainMenu/back_button_blowup.png" id="8_s7dxu"]
+[ext_resource type="Texture2D" uid="uid://dnlhs57gf7fuc" path="res://Backgrounds/slots_button_blowup.png" id="9_g1xkt"]
 
 [sub_resource type="SystemFont" id="SystemFont_www3o"]
 font_names = PackedStringArray("Comic Sans MS")
@@ -21,10 +25,9 @@ script = ExtResource("1_g7fni")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="TempBackground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(571.5, 331)
-scale = Vector2(36.2188, 27.3125)
-texture = ExtResource("1_btotq")
+[node name="BackgroundRedBlowup" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(585, 295)
+texture = ExtResource("2_p601e")
 
 [node name="Label2" type="Label" parent="."]
 visible = false
@@ -43,9 +46,9 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 1009.0
-offset_top = 37.0
+offset_top = 29.0
 offset_right = 1209.0
-offset_bottom = 625.0
+offset_bottom = 617.0
 scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = 25
 
@@ -68,8 +71,11 @@ texture_normal = ExtResource("5_l4mo6")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 visible = false
 custom_minimum_size = Vector2(0, 324)
-offset_right = 1152.0
-offset_bottom = 324.0
+offset_left = -1.0
+offset_top = 189.0
+offset_right = 2307.0
+offset_bottom = 1105.0
+scale = Vector2(0.5, 0.5)
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 121
 theme_override_constants/margin_right = 12
@@ -79,52 +85,48 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="BlackjackButton" type="Button" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
+[node name="BlackJackButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Blackjack"
+texture_normal = ExtResource("6_qg5lk")
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_5v4aw")
 
-[node name="TexasButton" type="Button" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
+[node name="TexasButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Texas Hold'em"
+texture_normal = ExtResource("7_0s581")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 visible = false
 custom_minimum_size = Vector2(0, 324)
-offset_left = 3.0
-offset_top = 322.0
-offset_right = 1152.0
-offset_bottom = 646.0
+offset_left = 1.0
+offset_top = 444.0
+offset_right = 2305.0
+offset_bottom = 853.0
+scale = Vector2(0.5, 0.5)
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 121
+theme_override_constants/margin_bottom = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="RouletteButton" type="Button" parent="MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
+[node name="RouletteButton" type="TextureButton" parent="MarginContainer2/HBoxContainer"]
 layout_mode = 2
-text = "Roulette"
+texture_normal = ExtResource("8_htubb")
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_5v4aw")
 
-[node name="SlotsButton" type="Button" parent="MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
+[node name="SlotsButton" type="TextureButton" parent="MarginContainer2/HBoxContainer"]
 layout_mode = 2
-text = "Slots
-"
+texture_normal = ExtResource("9_g1xkt")
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
 visible = false
@@ -159,4 +161,5 @@ texture_normal = ExtResource("8_s7dxu")
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="GameButton" to="." method="_on_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/RouletteButton" to="." method="_on_roulette_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/SlotsButton" to="." method="_on_slots_button_pressed"]
 [connection signal="pressed" from="BackToMain" to="." method="_on_back_to_main_pressed"]

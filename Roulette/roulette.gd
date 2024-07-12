@@ -180,11 +180,8 @@ func in_betting_or_chip_area():
 func check_place_or_return_bet():
 	# If the player is in a spot where they can bet
 	if can_bet == true:
-		print('can')
 		if chip_grabbed == true:
-			print('grab')
 			if left_click == false:
-				print('left')
 				chip_grabbed = false
 				bet_select()
 				place_bet()
@@ -488,14 +485,7 @@ func _on_bet_3_6_2_5_mouse_entered():
 func _on_bet_3_6_2_5_mouse_exited():
 	mouse_exited()
 
-func _on_button_pressed():
-	if len(player_bets) != 0:
-		camera.position.y -= 750
-		spin_wheel()
-
-
 func spin_wheel():
-	
 	var selected_num = randi_range(0,37)
 	selected_num = str(numbers[selected_num])
 	
@@ -503,8 +493,6 @@ func spin_wheel():
 	number_label.show()
 
 	for bet in player_bets:
-		print(bet)
-		print(selected_num)
 		match bet:
 			"00":
 				if selected_num == bet:
@@ -1705,3 +1693,8 @@ func _on_yellow_chip_mouse_entered():
 
 func _on_yellow_chip_mouse_exited():
 	yellow_chip = false
+
+func _on_place_bet_pressed():
+	if len(player_bets) != 0:
+		camera.position.y -= 750
+		spin_wheel()

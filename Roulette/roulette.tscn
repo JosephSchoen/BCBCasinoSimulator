@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://x2ea6qh76rt5"]
+[gd_scene load_steps=24 format=3 uid="uid://x2ea6qh76rt5"]
 
 [ext_resource type="Script" path="res://Roulette/roulette.gd" id="1_jclcb"]
+[ext_resource type="Texture2D" uid="uid://c3dqfuisy5jha" path="res://Backgrounds/background_red_blowup.png" id="2_kfxpk"]
 [ext_resource type="PackedScene" uid="uid://qo1c7alxl6x8" path="res://drag_and_drop.tscn" id="3_nwqvl"]
 [ext_resource type="Texture2D" uid="uid://h4ep1wpurfs2" path="res://Roulette/Assets/roulette-finish-blowup.png" id="4_84dsl"]
 [ext_resource type="Script" path="res://drag_and_drop_slots.gd" id="5_k86mo"]
@@ -17,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://655cvibqrs8w" path="res://Roulette/Assets/yellow_chip.png" id="15_xxwb4"]
 [ext_resource type="AudioStream" uid="uid://dpc20byh6teos" path="res://Roulette/Sound_Effects/chip_remove.wav" id="16_jk5bm"]
 [ext_resource type="AudioStream" uid="uid://8h68hdujerp5" path="res://Roulette/Sound_Effects/pokerchip.wav" id="17_dwjla"]
+[ext_resource type="Texture2D" uid="uid://cuyy8eerwwf8j" path="res://Roulette/Assets/bet_button_blowup.png" id="19_tidqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1b68"]
 size = Vector2(30.5, 30)
@@ -32,6 +34,10 @@ font_names = PackedStringArray("Comic Sans MS")
 
 [node name="Roulette" type="Node2D"]
 script = ExtResource("1_jclcb")
+
+[node name="BackgroundRedBlowup" type="Sprite2D" parent="."]
+position = Vector2(685, 57)
+texture = ExtResource("2_kfxpk")
 
 [node name="BettingNodes" type="Node2D" parent="."]
 
@@ -874,10 +880,10 @@ text = "Placeholder
 "
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 19.0
-offset_top = -312.0
-offset_right = 462.0
-offset_bottom = -218.0
+offset_left = 64.0
+offset_top = -258.0
+offset_right = 507.0
+offset_bottom = -164.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
 theme_override_fonts/font = SubResource("SystemFont_7yg5c")
@@ -899,7 +905,6 @@ text = "Placeholder
 "
 
 [node name="Roulette-finish-blowup" type="Sprite2D" parent="."]
-show_behind_parent = true
 position = Vector2(573, 318)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_84dsl")
@@ -1499,20 +1504,13 @@ expand_mode = 2
 position = Vector2(577, 324)
 script = ExtResource("6_s4jry")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 932.0
-offset_top = 553.0
-offset_right = 1083.0
-offset_bottom = 623.0
-text = "Place Bet"
-
 [node name="WheelTimer" type="Timer" parent="."]
 
 [node name="NumberLabel" type="Label" parent="."]
-offset_left = 12.0
-offset_top = -475.0
-offset_right = 528.0
-offset_bottom = -385.0
+offset_left = 61.0
+offset_top = -519.0
+offset_right = 577.0
+offset_bottom = -429.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -1521,10 +1519,10 @@ theme_override_font_sizes/font_size = 64
 text = "Placeholder"
 
 [node name="BackToBoard" type="Button" parent="."]
-offset_left = 718.0
-offset_top = -277.0
-offset_right = 1065.0
-offset_bottom = -178.0
+offset_left = 1128.0
+offset_top = -367.0
+offset_right = 1475.0
+offset_bottom = -268.0
 theme_override_font_sizes/font_size = 32
 text = "Back to Betting"
 
@@ -1537,6 +1535,18 @@ stream = ExtResource("16_jk5bm")
 
 [node name="chip_place" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("17_dwjla")
+
+[node name="PlaceBet" type="TextureButton" parent="."]
+offset_left = 945.0
+offset_top = 542.0
+offset_right = 1425.0
+offset_bottom = 732.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("19_tidqa")
+
+[node name="BackgroundRedBlowup2" type="Sprite2D" parent="."]
+position = Vector2(685, -1116)
+texture = ExtResource("2_kfxpk")
 
 [connection signal="mouse_entered" from="BettingNodes/SingleBets/Bet_1" to="." method="_on_bet_1_mouse_entered"]
 [connection signal="mouse_exited" from="BettingNodes/SingleBets/Bet_1" to="." method="_on_bet_1_mouse_exited"]
@@ -2021,6 +2031,6 @@ stream = ExtResource("17_dwjla")
 [connection signal="mouse_exited" from="MarginContainer/GridContainer/SkyBlueChip" to="." method="_on_sky_blue_chip_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/GridContainer/YellowChip" to="." method="_on_yellow_chip_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/GridContainer/YellowChip" to="." method="_on_yellow_chip_mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="WheelTimer" to="." method="_on_wheel_timer_timeout"]
 [connection signal="button_down" from="BackToBoard" to="." method="_on_back_to_board_button_down"]
+[connection signal="pressed" from="PlaceBet" to="." method="_on_place_bet_pressed"]

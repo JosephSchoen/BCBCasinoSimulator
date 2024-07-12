@@ -40,3 +40,6 @@ func _on_back_to_main_pressed():
 
 func _on_roulette_button_pressed():
 	get_tree().change_scene_to_file("res://Roulette/roulette.tscn")
+
+func _on_slots_button_pressed():
+	pass # Replace with function body.
