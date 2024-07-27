@@ -2,17 +2,16 @@ extends Node2D
 
 @onready var balance = 10000
 var can_bet = false
-var white_chip = false
-var red_chip = false
-var green_chip = false
-var blue_chip = false
-var black_chip = false
-var purple_chip = false
-var gold_chip = false
-var sky_blue_chip = false
-var yellow_chip = false
+
+var chips = {
+	"White Chip": false, "Red Chip": false, "Green Chip": false,
+	"Blue Chip": false, "Black Chip": false, "Purple Chip": false,
+	"Gold Chip": false, "Sky Blue Chip": false, "Yellow Chip": false
+}
+
 var chip_grabbed = false
 var current_chip = ""
+
 @onready var balance_text = $Label as Label
 @onready var balance_text2 = $Label2 as Label
 @onready var cannot_bet_label = $CannotBet as Label
@@ -57,7 +56,7 @@ func _process(delta):
 	check_place_or_return_bet()
 
 func in_betting_or_chip_area():
-	if white_chip == true:
+	if chips["White Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 1:
@@ -70,7 +69,7 @@ func in_betting_or_chip_area():
 				cannot_bet_label.show()
 				timer.start(3)
 				
-	elif red_chip == true:
+	elif chips["Red Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 5:
@@ -83,7 +82,7 @@ func in_betting_or_chip_area():
 				cannot_bet_label.show()
 				timer.start(3)
 	
-	elif green_chip == true:
+	elif chips["Green Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 25:
@@ -97,7 +96,7 @@ func in_betting_or_chip_area():
 				timer.start(3)
 	
 	# If the mouse is in the area of the blue chip
-	elif blue_chip == true:
+	elif chips["Blue Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 50:
@@ -111,7 +110,7 @@ func in_betting_or_chip_area():
 				timer.start(3)
 				
 	# If the mouse is in area of the black chip
-	elif black_chip == true:
+	elif chips["Black Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 100:
@@ -125,7 +124,7 @@ func in_betting_or_chip_area():
 				cannot_bet_label.show()
 				timer.start(3)
 	
-	elif purple_chip == true:
+	elif chips["Purple Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 500:
@@ -138,7 +137,7 @@ func in_betting_or_chip_area():
 				cannot_bet_label.show()
 				timer.start(3)
 			
-	elif gold_chip == true:
+	elif chips["Gold Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 1000:
@@ -151,7 +150,7 @@ func in_betting_or_chip_area():
 				cannot_bet_label.show()
 				timer.start(3)
 	
-	elif sky_blue_chip == true:
+	elif chips["Sky Blue Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 5000:
@@ -164,7 +163,7 @@ func in_betting_or_chip_area():
 				cannot_bet_label.show()
 				timer.start(3)
 
-	if yellow_chip == true:
+	if chips["Yellow Chip"] == true:
 		# If the user left clicks
 		if Input.is_action_just_pressed("Left Click"):
 			if balance >= 10000:
@@ -179,12 +178,15 @@ func in_betting_or_chip_area():
 
 func check_place_or_return_bet():
 	# If the player is in a spot where they can bet
-	if can_bet == true:
+	if can_bet == true and roulette_number != null:
+		print('1')
 		if chip_grabbed == true:
+			print('2')
 			if left_click == false:
+				print('3')
 				chip_grabbed = false
-				bet_select()
 				place_bet()
+				bet_select()
 		else:
 			# Checks if the player can grab a dropped chip
 			if roulette_number != null:
@@ -197,9 +199,6 @@ func check_place_or_return_bet():
 						bet_amount = player_bets[roulette_number]
 						player_bets.erase(roulette_number)
 						balance_text.text = "Balance: " + str(balance)
-		
-
-
 	
 # Searches the dictionary to see if the player has bet on the roulette number their mouse is hovering over
 func player_has_bet_on_number(roulette_number) -> bool:
@@ -255,8 +254,6 @@ func bet_select():
 	# If the player has not bet on this value, we add the key-value pair to the dictionary
 	if found == false:
 		player_bets[roulette_number] = bet_amount
-	print(player_bets)
-		
 
 # Finds the proper chip color
 func get_chip(bet) -> String:
@@ -287,7 +284,6 @@ func get_chip(bet) -> String:
 func _on_timer_timeout():
 	cannot_bet_label.hide()
 
-	
 func _on_bet_num_1_mouse_entered():
 	can_bet = true
 	roulette_number = "1"
@@ -340,6 +336,7 @@ func _on_bet_2356_mouse_exited():
 
 func mouse_exited():
 	can_bet = false
+	roulette_number = null
 
 func _on_bet_3_and_6_mouse_entered():
 	can_bet = true
@@ -356,16 +353,16 @@ func _on_bet_3_and_2_mouse_exited():
 	mouse_exited()
 
 func _on_blue_chip_mouse_entered():
-	blue_chip = true
+	chips["Blue Chip"] = true
 
 func _on_black_chip_mouse_entered():
-	black_chip = true
+	chips["Black Chip"] = true
 
 func _on_blue_chip_mouse_exited():
-	blue_chip = false
+	chips["Blue Chip"] = false
 
 func _on_black_chip_mouse_exited():
-	black_chip = false
+	chips["Black Chip"] = false
 
 func _on_bet_6_5_mouse_entered():
 	can_bet = true
@@ -608,13 +605,13 @@ func spin_wheel():
 			"36":
 				if selected_num == bet:
 					balance += player_bets[bet] * 36
-			"1st12":
+			"1st 12":
 				if int(selected_num) > 0 and int(selected_num) <= 12:
 					balance += player_bets[bet] * 3
-			"2nd12":
+			"2nd 12":
 				if int(selected_num) > 12 and int(selected_num) <= 24:
 					balance += player_bets[bet] * 3
-			"3rd12":
+			"3rd 12":
 				if int(selected_num) > 24:
 					balance += player_bets[bet] * 3
 			"1-18":
@@ -624,7 +621,7 @@ func spin_wheel():
 				if int(selected_num) > 18:
 					balance += player_bets[bet] * 2
 			"Top Row":
-				if int(selected_num) % 3 == 0:
+				if int(selected_num) % 3 == 0 and int(selected_num) != 0:
 					balance += player_bets[bet] * 3
 			"Middle Row":
 				if int(selected_num) % 3 == 2:
@@ -939,8 +936,12 @@ func clear_board():
 			$MarginContainerHorzDoubles/GridContainer/RouletteSlot100,$MarginContainerHorzDoubles/GridContainer/RouletteSlot101,$MarginContainerHorzDoubles/GridContainer/RouletteSlot102,$MarginContainerHorzDoubles/GridContainer/RouletteSlot103,
 			$MarginContainerHorzDoubles/GridContainer/RouletteSlot104,$MarginContainerHorzDoubles/GridContainer/RouletteSlot105,$MarginContainerHorzDoubles/GridContainer/RouletteSlot106,$MarginContainerHorzDoubles/GridContainer/RouletteSlot107,
 			$MarginContainerHorzDoubles/GridContainer/RouletteSlot108,$MarginContainerHorzDoubles/GridContainer/RouletteSlot109,$MarginContainerHorzDoubles/GridContainer/RouletteSlot110,$MarginContainerHorzDoubles/GridContainer/RouletteSlot111,
-			$MarginContainerHorzDoubles/GridContainer/RouletteSlot112,$MarginContainerHorzDoubles/GridContainer/RouletteSlot113,$MarginContainerHorzDoubles/GridContainer/RouletteSlot114,$MarginContainerHorzDoubles/GridContainer/RouletteSlot115
+			$MarginContainerHorzDoubles/GridContainer/RouletteSlot112,$MarginContainerHorzDoubles/GridContainer/RouletteSlot113,$MarginContainerHorzDoubles/GridContainer/RouletteSlot114,$MarginContainerHorzDoubles/GridContainer/RouletteSlot115,
+			$"MarginContainerBottom/GridContainer/1-18",$MarginContainerBottom/GridContainer/Even,$MarginContainerBottom/GridContainer/Red,$MarginContainerBottom/GridContainer/Black,$MarginContainerBottom/GridContainer/Odd,
+			$"MarginContainerBottom/GridContainer/19-36",$MarginContainerThirds/GridContainer/First,$MarginContainerThirds/GridContainer/Second,$MarginContainerThirds/GridContainer/Third,$MarginContainerRows/GridContainer/Top,
+			$MarginContainerRows/GridContainer/Middle,$MarginContainerRows/GridContainer/Bottom,$MarginContainerZeroes/GridContainer/DoubleZero,$MarginContainerZeroes/GridContainer/Zero
 		]
+		
 		for item in betting_board:
 			if item.texture != null:
 				item.texture = null
@@ -1653,48 +1654,170 @@ func _on_bet_36_mouse_exited():
 	mouse_exited()
 
 func _on_white_chip_mouse_entered():
-	white_chip = true
+	chips["White Chip"] = true
 
 func _on_white_chip_mouse_exited():
-	white_chip = false
+	chips["White Chip"] = false
 
 func _on_red_chip_mouse_entered():
-	red_chip = true
+	chips["Red Chip"] = true
 
 func _on_red_chip_mouse_exited():
-	red_chip = false
+	chips["Red Chip"] = false
 
 func _on_green_chip_mouse_entered():
-	green_chip = true
+	chips["Green Chip"] = true
 
 func _on_green_chip_mouse_exited():
-	green_chip = false
+	chips["Green Chip"] = false
 
 func _on_purple_chip_mouse_entered():
-	purple_chip = true
+	chips["Purple Chip"] = true
 
 func _on_purple_chip_mouse_exited():
-	purple_chip = false
+	chips["Purple Chip"] = false
 
 func _on_gold_chip_mouse_entered():
-	gold_chip = true
+	chips["Gold Chip"] = true
 
 func _on_gold_chip_mouse_exited():
-	gold_chip = false
+	chips["Gold Chip"] = false
 
 func _on_sky_blue_chip_mouse_entered():
-	sky_blue_chip = true
+	chips["Sky Blue Chip"] = true
 
 func _on_sky_blue_chip_mouse_exited():
-	sky_blue_chip = false
+	chips["Sky Blue Chip"] = false
 
 func _on_yellow_chip_mouse_entered():
-	yellow_chip = true
+	chips["Yellow Chip"] = true
 
 func _on_yellow_chip_mouse_exited():
-	yellow_chip = false
+	chips["Yellow Chip"] = false
 
 func _on_place_bet_pressed():
 	if len(player_bets) != 0:
 		camera.position.y -= 750
 		spin_wheel()
+
+func _on_even_mouse_entered():
+	can_bet = true
+	roulette_number = "Even"
+
+func _on_even_mouse_exited():
+	mouse_exited()
+
+
+func _on_black_mouse_entered():
+	can_bet = true
+	roulette_number = "Black"
+
+
+func _on_black_mouse_exited():
+	mouse_exited()
+
+
+func _on_odd_mouse_entered():
+	can_bet = true
+	roulette_number = "Odd"
+
+
+func _on_odd_mouse_exited():
+	mouse_exited()
+
+
+func _on_one_eighteen_mouse_entered():
+	can_bet = true
+	roulette_number = "1-18"
+
+
+func _on_one_eighteen_mouse_exited():
+	mouse_exited()
+
+
+func _on_nineteen_thirtysix_mouse_entered():
+	can_bet = true
+	roulette_number = "19-36"
+
+
+func _on_nineteen_thirtysix_mouse_exited():
+	mouse_exited()
+
+
+func _on_first_mouse_entered():
+	can_bet = true
+	roulette_number = "1st 12"
+
+func _on_first_mouse_exited():
+	mouse_exited()
+
+
+func _on_second_mouse_entered():
+	can_bet = true
+	roulette_number = "2nd 12"
+
+
+func _on_second_mouse_exited():
+	mouse_exited()
+
+
+func _on_third_mouse_entered():
+	can_bet = true
+	roulette_number = "3rd 12"
+
+
+func _on_third_mouse_exited():
+	mouse_exited()
+
+
+func _on_top_mouse_entered():
+	can_bet = true
+	roulette_number = "Top Row"
+
+
+func _on_top_mouse_exited():
+	mouse_exited()
+
+
+func _on_middle_mouse_entered():
+	can_bet = true
+	roulette_number = "Middle Row"
+
+
+func _on_middle_mouse_exited():
+	mouse_exited()
+
+
+func _on_bottom_mouse_entered():
+	can_bet = true
+	roulette_number = "Bottom Row"
+
+
+func _on_bottom_mouse_exited():
+	mouse_exited()
+
+
+func _on_double_zero_mouse_entered():
+	can_bet = true
+	roulette_number = "00"
+
+
+func _on_double_zero_mouse_exited():
+	mouse_exited()
+
+
+func _on_zero_mouse_entered():
+	can_bet = true
+	roulette_number = "0"
+
+
+func _on_zero_mouse_exited():
+	mouse_exited()
+
+
+func _on_betting_mouse_entered():
+	can_bet = true
+
+
+func _on_betting_mouse_exited():
+	can_bet = false
